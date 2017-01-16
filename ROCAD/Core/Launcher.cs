@@ -11,7 +11,7 @@ namespace ROCAD.Core
     {
         static int Main(string[] args)
         {
-            
+            Console.WriteLine("js");
             return 0;
         }
     }
