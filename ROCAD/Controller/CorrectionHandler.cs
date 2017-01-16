@@ -26,25 +26,22 @@ namespace ROCAD.Controller
 
         private static double computeQuestionGrade(Question answered, Question expected)
         {
-            if (answered.getAnswerList().Count != expected.getAnswerList().Count)
-                return expected.malus() * (-1);
-
             double computed = 0.0;
 
-            for (int i = 0; i < answered.getAnswerList().Count; i++)
+            for (int i = 0; i < expected.getAnswerList().Count; i++)
             {
-                Response rAnswered = answered.getAnswerList()[i];
+                Response rAnswered = new Response("RANDOM-STRING-FORCED-FALSE-AS-RESPONSE");
+                if(answered.getAnswerList()[i] != null)
+                    rAnswered = answered.getAnswerList()[i];
                 Response rExpected = expected.getAnswerList()[i];
 
                 if (rAnswered.Equals(rExpected) == false)
                 {
-                    computed = expected.malus() * (-1);
-                    break;
+                    computed += expected.malus() * (-1) / expected.getAnswerList().Count;
                 }
-                else
+                else if (rAnswered.Equals(answered.getAnswerList().Last()))
                 {
-                    if (rAnswered.Equals(answered.getAnswerList().Last()))
-                        computed = expected.bonus();
+                    computed += expected.bonus() / expected.getAnswerList().Count;
                 }
             }
             return computed;
