@@ -4,6 +4,8 @@ namespace ROCAD.Model
 {
     public class Subject
     {
+        private static int ID = 1;
+
         // DATA PART
         private string m_id;
         private List<Question> m_questionList;
@@ -13,15 +15,15 @@ namespace ROCAD.Model
 
         public Subject()
         {
-            this.m_id = "0";
+            this.m_id = ID++.ToString();
 
             this.m_questionList = new List<Question>();
             this.m_student = new Student();
         }
 
-        public Subject(string id, List<Question> questionList, Student studentAssociated)
+        public Subject(List<Question> questionList, Student studentAssociated)
         {
-            this.m_id = id;
+            this.m_id = ID++.ToString();
             this.m_questionList = questionList;
             this.m_student = studentAssociated;
         }

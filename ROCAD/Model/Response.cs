@@ -4,19 +4,21 @@ namespace ROCAD.Model
 {
     public class Response
     {
+        private static int ID = 1;
+
         // DATA PART
         private string m_id;
         private string m_description;
 
         public Response()
         {
-            this.m_id = "0";
+            this.m_id = ID++.ToString();
             this.m_description = "undefined";
         }
 
-        public Response(string id, string description)
+        public Response(string description)
         {
-            this.m_id = id;
+            this.m_id = ID++.ToString();
             this.m_description = description;
         }
 

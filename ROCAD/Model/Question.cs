@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ROCAD.Model
 {
     public class Question
     {
+        private static int ID = 1;
+
         // DATA PART
         private string m_id;
         private string m_description;
@@ -16,7 +19,7 @@ namespace ROCAD.Model
 
         public Question()
         {
-            this.m_id = "0";
+            this.m_id = ID++.ToString();
             this.m_description = "undefined";
             this.m_bonus = 0;
             this.m_malus = 0;
@@ -24,9 +27,9 @@ namespace ROCAD.Model
             this.m_responseList = new List<Response>();
         }
 
-        public Question(string id, string description, int bonus, int malus)
+        public Question(string description, int bonus, int malus)
         {
-            this.m_id = id;
+            this.m_id = ID++.ToString();
             this.m_description = description;
             this.m_bonus = bonus;
             this.m_malus = malus;
@@ -35,9 +38,9 @@ namespace ROCAD.Model
             this.m_answerList = new List<Response>();
         }
 
-        public Question(string id, string description, int bonus, int malus, List<Response> responseList, List<Response> answerList)
+        public Question( string description, int bonus, int malus, List<Response> responseList, List<Response> answerList)
         {
-            this.m_id = id;
+            this.m_id = ID++.ToString();
             this.m_description = description;
             this.m_bonus = bonus;
             this.m_malus = malus;
