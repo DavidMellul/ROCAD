@@ -1,12 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ROCAD.Model
 {
-    class Subject
+    public class Subject
     {
+        // DATA PART
+        private string m_id;
+        private List<Question> m_questionList;
+
+        // STUDENT ASSOCIATED, IF NOT -> ORIGINAL SUBJECT IS THIS ONE
+        private Student m_student;
+
+        public Subject()
+        {
+            this.m_id = "0";
+
+            this.m_questionList = new List<Question>();
+            this.m_student = new Student();
+        }
+
+        public Subject(string id, List<Question> questionList, Student studentAssociated)
+        {
+            this.m_id = id;
+            this.m_questionList = questionList;
+            this.m_student = studentAssociated;
+        }
+
+        public string id()
+        {
+            return this.m_id;
+        }
+
+        public Student student()
+        {
+            return this.m_student;
+        }
+
+        public List<Question> questionList()
+        {
+            return this.m_questionList;
+        }
     }
 }

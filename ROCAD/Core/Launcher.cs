@@ -1,18 +1,12 @@
-﻿using ROCAD.Controller;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static System.Diagnostics.Debug;
 
 namespace ROCAD.Core
 {
-    class Launcher
+    internal class Launcher
     {
-        static int Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("js");
-            return 0;
+            WriteLine("ok");
         }
     }
 }
