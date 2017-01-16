@@ -38,6 +38,17 @@ namespace ROCAD.Model
             this.m_answerList = new List<Response>();
         }
 
+        public Question(string description, int bonus, int malus, List<Response> answerList)
+        {
+            this.m_id = ID++.ToString();
+            this.m_description = description;
+            this.m_bonus = bonus;
+            this.m_malus = malus;
+
+            this.m_responseList = new List<Response>();
+            this.m_answerList = answerList;
+        }
+
         public Question( string description, int bonus, int malus, List<Response> responseList, List<Response> answerList)
         {
             this.m_id = ID++.ToString();
@@ -48,6 +59,7 @@ namespace ROCAD.Model
             this.m_responseList = responseList;
             this.m_answerList = answerList;
         }
+
 
         public string id()
         {

@@ -65,5 +65,10 @@ namespace ROCAD.Model
         {
             this.m_responseList.Add(r);
         }
+
+        public override string ToString()
+        {
+            return "[Étudiant] => { "+this.m_firstname+" , "+this.m_lastname + " , "+this.m_grade + " }\n";
+        }
     }
 }
