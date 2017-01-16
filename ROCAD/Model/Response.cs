@@ -36,7 +36,6 @@ namespace ROCAD.Model
         {
             if (r.GetType() != typeof(Response))
                 return false;
-
             return this.description().Equals(((Response)r).description());
         }
     }

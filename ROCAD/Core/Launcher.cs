@@ -10,19 +10,15 @@ namespace ROCAD.Core
     {
         public static void Main(string[] args)
         {
-       //     Response rEtudiant1 = new Response("");
-            Response rEtudiant2 = new Response("B");
-            Response rEtudiant3 = new Response("D");
-
             Response rPossible1 = new Response("A");
-            Response rPossible2 = new Response("B");
+            Response rPossible2 = new Response("D");
             Response rPossible3 = new Response("C");
-            Response rPossible4 = new Response("D");
+            Response rPossible4 = new Response("B");
 
             List<Response> lrEtudiant = new List<Response>();
        //     lrEtudiant.Add(rEtudiant1);
-            lrEtudiant.Add(rEtudiant2);
-            lrEtudiant.Add(rEtudiant3);
+        //    lrEtudiant.Add(rEtudiant2);
+            lrEtudiant.Add(rPossible2);
 
 
             List<Response> lrQuestionPossible = new List<Response>();
