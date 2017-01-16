@@ -16,8 +16,9 @@ namespace ROCAD.Core
             Response rPossible4 = new Response("B");
 
             List<Response> lrEtudiant = new List<Response>();
-       //     lrEtudiant.Add(rEtudiant1);
-        //    lrEtudiant.Add(rEtudiant2);
+            //     lrEtudiant.Add(rEtudiant1);
+            //    lrEtudiant.Add(rEtudiant2);
+            lrEtudiant.Add(rPossible1);
             lrEtudiant.Add(rPossible2);
 
 
@@ -28,8 +29,9 @@ namespace ROCAD.Core
             lrQuestionPossible.Add(rPossible4);
 
             List<Response> lrQuestionBonne = new List<Response>();
-            lrQuestionBonne.Add(rPossible2);
             lrQuestionBonne.Add(rPossible4);
+            lrQuestionBonne.Add(rPossible3);
+            lrQuestionBonne.Add(rPossible2);
 
 
 

@@ -45,7 +45,7 @@ namespace ROCAD.Controller
                 {
                     if (rAnswered.description().Equals(EMPTY_RESPONSE) == false)
                     {
-                        if(computed > expected.bonus()/2)
+                        if(computed > expected.bonus()/2 || computed == 0)
                             computed -= expected.malus() / expected.getAnswerList().Count;
                     }
                 }
