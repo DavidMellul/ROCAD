@@ -6,8 +6,6 @@ namespace ROCAD.Model
     {
         // DATA PART
         private string m_id;
-        private string m_firstname;
-        private string m_lastname;
         private double m_grade;
 
         // RESPONSES ANSWERED PART
@@ -16,34 +14,18 @@ namespace ROCAD.Model
         public Student()
         {
             this.m_id = "0";
-            this.m_firstname = "undefined";
-            this.m_lastname = "undefined";
-
             this.m_responseList = new List<Question>();
         }
 
-        public Student(string id, string firstname, string lastname, List<Question> responseList)
+        public Student(string id, List<Question> responseList)
         {
             this.m_id = id;
-            this.m_firstname = firstname;
-            this.m_lastname = lastname;
-
             this.m_responseList = responseList;
         }
 
         public string id()
         {
             return this.m_id;
-        }
-
-        public string firstname()
-        {
-            return this.m_firstname;
-        }
-
-        public string lastname()
-        {
-            return this.m_lastname;
         }
 
         public double grade()
@@ -68,7 +50,7 @@ namespace ROCAD.Model
 
         public override string ToString()
         {
-            return "[Étudiant] => { "+this.m_firstname+" , "+this.m_lastname + " , "+this.m_grade + " }\n";
+            return "[Étudiant] => { "+this.m_id+" , "+ " , "+this.m_grade + " }\n";
         }
     }
 }

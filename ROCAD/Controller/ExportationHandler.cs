@@ -1,6 +1,10 @@
-﻿namespace ROCAD.Controller
+﻿using System.Collections.Generic;
+using ROCAD.Model;
+
+namespace ROCAD.Controller
 {
-    class ExportationHandler
+    public class ExportationHandler
     {
+        // DATA PART
     }
 }

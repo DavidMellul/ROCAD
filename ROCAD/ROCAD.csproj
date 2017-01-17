@@ -51,6 +51,8 @@
     <Compile Include="Controller\GenerationHandler.cs" />
     <Compile Include="Controller\ImageHandler.cs" />
     <Compile Include="Core\Launcher.cs" />
+    <Compile Include="Factory\StudentFactory.cs" />
+    <Compile Include="Factory\SubjectFactory.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Question.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Controller\SettingsHandler.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
+    <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
