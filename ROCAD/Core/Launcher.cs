@@ -67,6 +67,8 @@ namespace ROCAD.Core
             List<Student> l = new List<Student>();
             l.Add(stu);
             ExportationHandler.exportAsCsv(l, "test.xlsx");
+
+            PDFHandler.func();
         }
     }
 }

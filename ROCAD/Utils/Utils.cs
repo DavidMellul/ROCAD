@@ -18,7 +18,7 @@ namespace ROCAD.Utils
 
         public static string generateRandomProjectIdentifier()
         {
-
+            return "";
         }
     }
 }

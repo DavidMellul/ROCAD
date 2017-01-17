@@ -42,6 +42,9 @@
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +58,7 @@
     <Compile Include="Controller\CorrectionHandler.cs" />
     <Compile Include="Controller\ExportationHandler.cs" />
     <Compile Include="Controller\ImageHandler.cs" />
+    <Compile Include="Controller\PDFHandler.cs" />
     <Compile Include="Core\Launcher.cs" />
     <Compile Include="Factory\StudentFactory.cs" />
     <Compile Include="Factory\SubjectFactory.cs" />
