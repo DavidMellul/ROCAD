@@ -45,8 +45,13 @@ namespace ROCAD.Controller
                 {
                     if (rAnswered.description().Equals(EMPTY_RESPONSE) == false)
                     {
-                        if(computed > expected.bonus()/2 || computed == 0)
-                            computed -= expected.malus() / expected.getAnswerList().Count;
+                        if (computed > expected.bonus() / 2 || computed == 0)
+                        {
+                            if(expected.getAnswerList().Count != 1)
+                                computed -= expected.malus() / expected.getAnswerList().Count;
+                            else // if the question has only one possible answer, we shouldn't give a too hard malus
+                                computed -= expected.malus() / 2;
+                        }
                     }
                 }
             }

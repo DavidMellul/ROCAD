@@ -21,6 +21,13 @@ namespace ROCAD.Model
             this.m_student = new Student();
         }
 
+        public Subject(List<Question> questionList)
+        {
+            this.m_id = ID++.ToString();
+            this.m_questionList = questionList;
+            this.m_student = new Student();
+        }
+
         public Subject(List<Question> questionList, Student studentAssociated)
         {
             this.m_id = ID++.ToString();
@@ -41,6 +48,11 @@ namespace ROCAD.Model
         public List<Question> questionList()
         {
             return this.m_questionList;
+        }
+
+        public void addQuestion(Question q)
+        {
+            this.m_questionList.Add(q);
         }
     }
 }
