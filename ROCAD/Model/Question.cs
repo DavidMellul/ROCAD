@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace ROCAD.Model
 {
+    [Serializable()]
     public class Question
     {
         private static int ID = 1;

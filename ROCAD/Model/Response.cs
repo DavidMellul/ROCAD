@@ -2,6 +2,7 @@
 
 namespace ROCAD.Model
 {
+    [Serializable()]
     public class Response
     {
         private static int ID = 1;

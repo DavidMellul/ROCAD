@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ROCAD.Model
 {
+    [Serializable()]
     public class Student
     {
         // DATA PART
