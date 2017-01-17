@@ -16,10 +16,7 @@ namespace ROCAD.Core
             Response rPossible4 = new Response("B");
 
             List<Response> lrEtudiant = new List<Response>();
-            //     lrEtudiant.Add(rEtudiant1);
-            //    lrEtudiant.Add(rEtudiant2);
-            lrEtudiant.Add(rPossible1);
-            lrEtudiant.Add(rPossible2);
+
 
 
             List<Response> lrQuestionPossible = new List<Response>();
@@ -51,6 +48,16 @@ namespace ROCAD.Core
             CorrectionHandler.correct(s);
 
             Console.WriteLine(stu);
+
+            String title = "DS_deSaumon";
+            String path = title + ".xml";
+            Project p = new Project("Pallez", title, s);
+            p.save(path);
+            Project p_load = Project.load(path);
+
+            Console.WriteLine(p.title());
+            Console.WriteLine(p_load.title());
+            if (p.Equals(p_load)) Console.WriteLine("t'as save mec !");
 
 
         }
