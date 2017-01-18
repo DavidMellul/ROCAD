@@ -24,6 +24,8 @@ namespace ROCAD.Model
         private SubjectFactory m_subjectFactory ;
         private StudentFactory m_studentFactory;
 
+        private List<Subject> m_subjects;
+
         public Project() { }
 
         public Project(String author, String title, Subject subject, String time, String date) {
@@ -95,6 +97,7 @@ namespace ROCAD.Model
         public void setOriginalSubject(Subject s)
         {
             this.m_subject = this.m_subjectFactory.createOriginalSubject(s.questionList());
+            m_subjects = this.m_subjectFactory.createRandomSubjects();
         }
 
         public String date()

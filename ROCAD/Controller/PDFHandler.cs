@@ -41,8 +41,10 @@ namespace ROCAD.Controller
                 cb.BeginText();
                 cb.SetFontAndSize(bfTimes, 8);
                 cb.SetTextMatrix(450, 800); //(xPos, yPos)
-                cb.ShowText(studentK.id().ToString() + "/" + k.ToString() + "/" + 1);
                 cb.EndText();
+                writeHeadeIdentifier();
+
+
 
                 //Titre de la page (sujet,durée , date )
                 Paragraph title = new Paragraph();
@@ -96,8 +98,7 @@ namespace ROCAD.Controller
                 c2.BeginText();
                 c2.SetFontAndSize(b2, 10);
                 c2.SetTextMatrix(350, 620); //(xPos, yPos)
-                c2.ShowText("codez votre numéro d'étudiant ci-contre");
-
+                c2.ShowText("Codez votre numéro d'étudiant ci-contre");
                 c2.EndText();
 
                 PdfContentByte c3 = m_writer.DirectContent;
@@ -107,10 +108,9 @@ namespace ROCAD.Controller
                 c3.SetFontAndSize(b2, 10);
                 c3.SetTextMatrix(350, 610); //(xPos, yPos)
                 c3.ShowText("Écrivez votre nom et prénom ci-dessous");
-
                 c3.EndText();
-                //Text dans la case pour nom et prenom
 
+                //Text dans la case pour nom et prenom
                 PdfContentByte c4 = m_writer.DirectContent;
 
                 c4.BeginText();
@@ -182,36 +182,96 @@ namespace ROCAD.Controller
 
 
                 // --------------------------------------------- QUESTIONS  --------------------------------------------
+                // ON DEFINIT MAX 4 QUESTIONS SUR LA PREMIERE PAGE, ET LE DOUBLE SUR LES AUTRES
                 List<Question> questions = this.m_referencedProject.subject(studentK).questionList();
+                int positionerY = 0;
+                int positiionerX = 70;
+                int pageCursor = 1;
+                int malus = 0;
 
-                foreach (Question q in questions)
+                for (int m = 0; m < questions.Count; m++)
                 {
+                    Question q = questions[m];
+                    positiionerX = 70;
+
+                    if (pageCursor > 1)
+                    {
+                        positionerY = 900 - ((m-malus) * 100);
+                    }
+                    else
+                    {
+                        positionerY = 400 - (m * 100);
+                    }
+
                     c6.BeginText();
                     c6.SetFontAndSize(b2, 10);
                     c6.ShowTextAligned(PdfContentByte.ALIGN_LEFT,
                         q.description(),
-                        95, 500, 0);
+                        positiionerX, positionerY, 0);
                     c6.EndText();
 
-                    cb.Rectangle(m_writerData.PageSize.Width - 500f + z, 700f - i, 10f, 10f);
-                    cb.Stroke();
-                    foreach (Response r in q.getResponseList())
+                    for (int v = 0; v < q.getResponseList().Count; v++)
                     {
+
+                        Response r = q.getResponseList()[v];
+
+                        positiionerX = 100;
+                        positionerY -= 17;
+
+                        cb.Rectangle(positiionerX, positionerY, 10f, 10f);
+                        cb.Stroke();
+
+                        positiionerX = 120;
+
                         c6.BeginText();
                         c6.SetFontAndSize(b2, 10);
                         c6.ShowTextAligned(PdfContentByte.ALIGN_LEFT,
                             r.description(),
-                            95, 500, 0);
+                            positiionerX, positionerY, 0);
                         c6.EndText();
                     }
+                    if ((m + 1) % 4 == 0)
+                    {
+                        if (pageCursor == 1)
+                        {
 
-                }
+                            pageCursor += 1;
+                            m_writerData.NewPage();
+                            malus = 3;
+                            cb = m_writer.DirectContent;
+                            writeHeadeIdentifier();
+                        }
+                        else if((m+1) % 12 == 0)
+                        {
+                            pageCursor += 1;
+                            m_writerData.NewPage();
+                            cb = m_writer.DirectContent;
+                            malus = (pageCursor - 2) * 11;
+                            writeHeadeIdentifier();
+                        }
+                    }
+                   }
+
             }
 
             m_writerData.Close();
             m_writer.Close();
             System.Diagnostics.Process.Start(this.QCM_FILEPATH);
 
+        }
+
+        private void writeHeadeIdentifier()
+        {
+            PdfContentByte cb = m_writer.DirectContent;
+            //BLOC D'IDENTIFICATION
+            for (int b = 0; b < 12; b++)
+            {
+                for (int u = 0; u < 2; u++)
+                {
+                    cb.Rectangle(-b*10 + 550, u*10 + 800,10,10);
+                    cb.Stroke();
+                }
+            }
         }
 
         private static int RandomNumber(int min, int max)

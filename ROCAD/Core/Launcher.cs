@@ -16,7 +16,7 @@ namespace ROCAD.Core
     {
         public static void Main(string[] args)
         {
-            /*
+
                 Response rPossible1 = new Response("A");
                 Response rPossible2 = new Response("D");
                 Response rPossible3 = new Response("C");
@@ -45,8 +45,32 @@ namespace ROCAD.Core
 
                 List<Question> listeQuestionsSujet = new List<Question>();
                 listeQuestionsSujet.Add(qSujet);
+                listeQuestionsSujet.Add(qSujet);
+                listeQuestionsSujet.Add(qSujet);
+                listeQuestionsSujet.Add(qSujet);
+                listeQuestionsSujet.Add(qSujet);
+                listeQuestionsSujet.Add(qSujet);
+                listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
+            listeQuestionsSujet.Add(qSujet);
 
-                List<Question> listeQuestionsEtudiant = new List<Question>();
+
+
+
+
+
+            List<Question> listeQuestionsEtudiant = new List<Question>();
                 listeQuestionsEtudiant.Add(qEtudiant);
 
                 Student stu = new Student("21502022",listeQuestionsEtudiant);
@@ -77,15 +101,18 @@ namespace ROCAD.Core
                 List<Student> l = new List<Student>();
                 l.Add(stu);
 
-                ExportationHandler.exportAsCsv(l, "test.xlsx");
+                ExportationHandler.exportAsCsv(l, p.title()+"_"+p.date()+".xlsx");
+
+            p.setOriginalSubject(s);
 
                 PDFHandler pdf = new PDFHandler();
                 pdf.initDocumentCreation(p);
-                pdf.generateSheets();*/
+                pdf.generateSheets();
 
-            Application.EnableVisualStyles();
+        /*    Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form5());
+*/
         }
     }
 }
