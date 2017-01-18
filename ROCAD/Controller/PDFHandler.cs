@@ -192,6 +192,19 @@ namespace ROCAD.Controller
                         q.description(),
                         95, 500, 0);
                     c6.EndText();
+
+                    cb.Rectangle(m_writerData.PageSize.Width - 500f + z, 700f - i, 10f, 10f);
+                    cb.Stroke();
+                    foreach (Response r in q.getResponseList())
+                    {
+                        c6.BeginText();
+                        c6.SetFontAndSize(b2, 10);
+                        c6.ShowTextAligned(PdfContentByte.ALIGN_LEFT,
+                            r.description(),
+                            95, 500, 0);
+                        c6.EndText();
+                    }
+
                 }
             }
 
