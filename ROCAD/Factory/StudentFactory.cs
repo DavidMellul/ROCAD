@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ROCAD.Model;
 
 namespace ROCAD.Factory
@@ -8,31 +9,24 @@ namespace ROCAD.Factory
     public class StudentFactory
     {
         // DATA PART
-        private List<Student> m_studentList;
+        private Dictionary<string,Student> m_studentList;
 
-        // PATTERN SINGLETON
-        private static StudentFactory m_instance = new StudentFactory();
 
-        private StudentFactory()
+        public StudentFactory()
         {
-            this.m_studentList = new List<Student>();
-        }
-
-        public static StudentFactory getInstance()
-        {
-            return m_instance;
+            this.m_studentList = new Dictionary<string, Student>();;
         }
 
         public Student createStudent(string id, List<Question> responseList)
         {
             Student s = new Student(id,responseList);
-            this.m_studentList.Add(s);
+            this.m_studentList[id] = s;
             return s;
         }
 
         public List<Student> getStudentList()
         {
-            return this.m_studentList;
+            return this.m_studentList.Values.ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -16,17 +17,21 @@ namespace ROCAD.Model
         private String m_author;
         private String m_title;
         private Subject m_subject;
+        private String m_time;
+        private String m_date;
         
         // FACTORIES
-        private SubjectFactory m_subjectFactory = SubjectFactory.getInstance();
-        private StudentFactory m_studentFactory = StudentFactory.getInstance();
+        private SubjectFactory m_subjectFactory = new SubjectFactory();
+        private StudentFactory m_studentFactory = new StudentFactory();
 
         public Project() { }
 
-        public Project(String author, String title, Subject subject) {
+        public Project(String author, String title, Subject subject, String time, String date) {
             m_author = author;
             m_title = title;
             m_subject = subject;
+            m_time = time;
+            m_date = date;
         }
 
         public void save(String path) {
@@ -62,6 +67,36 @@ namespace ROCAD.Model
             if (r.GetType() != typeof(Project))
                 return false;
             return this.title().Equals(((Project)r).title());
+        }
+
+        public List<Student> studentList()
+        {
+            return this.m_studentFactory.getStudentList();
+        }
+
+        public List<Subject> subjectList()
+        {
+            return this.m_subjectFactory.getSubjects();
+        }
+
+        public void addStudent(Student s)
+        {
+            this.m_studentFactory.createStudent(s.id(), s.responsesAnswered());
+        }
+
+        public void setOriginalSubject(Subject s)
+        {
+            this.m_subject = this.m_subjectFactory.createOriginalSubject(s.questionList());
+        }
+
+        public String date()
+        {
+            return this.m_date;
+        }
+
+        public String time()
+        {
+            return this.m_time;
         }
 
 
