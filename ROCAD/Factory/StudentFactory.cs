@@ -11,7 +11,6 @@ namespace ROCAD.Factory
         // DATA PART
         private Dictionary<string,Student> m_studentList;
 
-
         public StudentFactory()
         {
             this.m_studentList = new Dictionary<string, Student>();;

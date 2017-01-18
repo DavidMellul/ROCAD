@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 using iTextSharp.text;
@@ -29,7 +30,8 @@ namespace ROCAD.Controller
 
             for (int k = 1; k <= students.Count; k++)
             {
-                Student studentK = students[k-1];
+                Student studentK = students[k - 1];
+                Debug.WriteLine(studentK.id());
                 m_writerData.NewPage();
 
                 PdfContentByte cb = m_writer.DirectContent;
@@ -39,16 +41,16 @@ namespace ROCAD.Controller
                 cb.BeginText();
                 cb.SetFontAndSize(bfTimes, 8);
                 cb.SetTextMatrix(450, 800); //(xPos, yPos)
-                cb.ShowText(studentK.id()+ "/" + k.ToString() + "/" + 1);
+                cb.ShowText(studentK.id().ToString() + "/" + k.ToString() + "/" + 1);
                 cb.EndText();
 
                 //Titre de la page (sujet,durée , date )
                 Paragraph title = new Paragraph();
                 title.Alignment = Element.ALIGN_CENTER;
                 title.Font = FontFactory.GetFont("Times", 11, Font.BOLD);
-                title.Add("\nBases de la conception orientée objet \n");
-                title.Add("Diagramme de classes\n");
-                title.Add("Durée : " +QCM_TIME+ " mins\n");
+                title.Add("\n" + QCM_TITLE + "\n");
+                title.Add("Enseignant : "+m_referencedProject.author()+"\n");
+                title.Add("Durée : " + QCM_TIME + " mins\n");
                 title.Add(QCM_DATE);
                 m_writerData.Add(title);
 
@@ -70,7 +72,6 @@ namespace ROCAD.Controller
                             // z = z + 20;
                             i = 0;
                         }
-
                         cb.Rectangle(m_writerData.PageSize.Width - 500f + z, 700f - i, 10f, 10f);
                         cb.Stroke();
                         PdfContentByte c1 = m_writer.DirectContent;
@@ -105,7 +106,7 @@ namespace ROCAD.Controller
                 c3.BeginText();
                 c3.SetFontAndSize(b2, 10);
                 c3.SetTextMatrix(350, 610); //(xPos, yPos)
-                c3.ShowText("écriver votre nom et prénom ci-dessous");
+                c3.ShowText("Écrivez votre nom et prénom ci-dessous");
 
                 c3.EndText();
                 //Text dans la case pour nom et prenom
@@ -156,7 +157,8 @@ namespace ROCAD.Controller
                 //case avant ligne
                 iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance("qcm.png");
                 PNG.ScalePercent(15f);
-                PNG.SetAbsolutePosition(m_writerData.PageSize.Width - 36f - 460f, m_writerData.PageSize.Height - 36f - 350f);
+                PNG.SetAbsolutePosition(m_writerData.PageSize.Width - 36f - 460f,
+                    m_writerData.PageSize.Height - 36f - 350f);
                 m_writerData.Add(PNG);
 
                 //Texte explicatif pour bien cocher
@@ -178,9 +180,15 @@ namespace ROCAD.Controller
                 c6.LineTo(570, 440);
                 c6.Stroke();
 
-                m_writerData.Close();
-                System.Diagnostics.Process.Start();
+
+                // --------------------------------------------- QUESTIONS  --------------------------------------------
+
             }
+
+            m_writerData.Close();
+            m_writer.Close();
+            System.Diagnostics.Process.Start(this.QCM_FILEPATH);
+
         }
 
         private static int RandomNumber(int min, int max)
@@ -192,19 +200,18 @@ namespace ROCAD.Controller
         public void initDocumentCreation(Project p)
         {
             this.QCM_TITLE = p.title();
-            this.QCM_FILEPATH = Environment.CurrentDirectory + "/" + QCM_TITLE + ".pdf";
+            this.QCM_FILEPATH = QCM_TITLE+ ".pdf";
             this.QCM_DATE = p.date();
-            this.QCM_TIME = p.time()
+            this.QCM_TIME = p.time();
 
             this.m_writerData = new Document();
             this.m_writer = PdfWriter.GetInstance(this.m_writerData, new FileStream(QCM_FILEPATH,FileMode.Create));
             this.m_writerData.Open();
 
-
             this.m_referencedProject = p;
         }
 
-        }
+       }
     }
 
 
