@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Controller\CorrectionHandler.cs" />
     <Compile Include="Controller\ExportationHandler.cs" />
-    <Compile Include="Controller\GenerationHandler.cs" />
     <Compile Include="Controller\ImageHandler.cs" />
     <Compile Include="Core\Launcher.cs" />
     <Compile Include="Factory\StudentFactory.cs" />
