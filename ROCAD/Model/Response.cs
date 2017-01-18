@@ -11,6 +11,9 @@ namespace ROCAD.Model
         private string m_id;
         private string m_description;
 
+        // GRAPHICAL DATA PART
+        private int m_x , m_y;
+
         public Response()
         {
             this.m_id = ID++.ToString();
@@ -38,6 +41,17 @@ namespace ROCAD.Model
             if (r.GetType() != typeof(Response))
                 return false;
             return this.description().Equals(((Response)r).description());
+        }
+
+
+        public int x {
+            get { return m_x; }
+            set { m_x = value; }
+        }
+
+        public int y {
+            get { return m_y; }
+            set { m_y = value; }
         }
     }
 }

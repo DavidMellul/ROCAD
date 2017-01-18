@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
+using System.Net.Mime;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
+using Aspose.Pdf.Devices;
+using Bytescout.PDFRenderer;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using ROCAD.Factory;
 using ROCAD.Model;
+using Font = iTextSharp.text.Font;
+using Rectangle = iTextSharp.text.Rectangle;
 
-namespace ROCAD.Controller
-{
-    public class PDFHandler
-    {
+namespace ROCAD.Controller {
+    public class PDFHandler {
         private string QCM_DATE;
         private string QCM_TIME;
         private string QCM_TITLE;
@@ -23,13 +29,11 @@ namespace ROCAD.Controller
 
         private Project m_referencedProject;
 
-        public void generateSheets()
-        {
-            List<Student> students = m_referencedProject.studentList();
+        public void generateSheets() {
+            List < Student > students = m_referencedProject.studentList();
             Font arial = FontFactory.GetFont("Arial", 10, Font.BOLDITALIC);
 
-            for (int k = 1; k <= students.Count; k++)
-            {
+            for (int k = 1; k <= students.Count; k++) {
                 Student studentK = students[k - 1];
                 Debug.WriteLine(studentK.id());
                 m_writerData.NewPage();
@@ -51,7 +55,7 @@ namespace ROCAD.Controller
                 title.Alignment = Element.ALIGN_CENTER;
                 title.Font = FontFactory.GetFont("Times", 11, Font.BOLD);
                 title.Add("\n" + QCM_TITLE + "\n");
-                title.Add("Enseignant : "+m_referencedProject.author()+"\n");
+                title.Add("Enseignant : " + m_referencedProject.author() + "\n");
                 title.Add("Durée : " + QCM_TIME + " mins\n");
                 title.Add(QCM_DATE);
                 m_writerData.Add(title);
@@ -61,20 +65,17 @@ namespace ROCAD.Controller
                 int j = 0;
                 int y = 0;
                 int z = 0;
-                for (z = 0; z < 200; z = z + 20)
-                {
-                    for (i = 0; i < 200; i = i + 20)
-                    {
+                for (z = 0; z < 200; z = z + 20) {
+                    for (i = 0; i < 200; i = i + 20) {
 
-                        if (i == 200 && y <= 6)
-                        {
+                        if (i == 200 && y <= 6) {
 
                             j = 0;
                             y++;
                             // z = z + 20;
                             i = 0;
                         }
-                        cb.Rectangle(m_writerData.PageSize.Width - 500f + z, 700f - i, 10f, 10f);
+                        cb.Rectangle(m_writerData.PageSize.Width - 500  + z, 700  - i, 10 , 10 );
                         cb.Stroke();
                         PdfContentByte c1 = m_writer.DirectContent;
                         BaseFont b1 = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
@@ -131,10 +132,10 @@ namespace ROCAD.Controller
 
                 PdfContentByte ca = m_writer.DirectContent;
 
-                ca.Rectangle(m_writerData.PageSize.Width - 450f + z, 750f - i, 200f, 50f);
+                ca.Rectangle(m_writerData.PageSize.Width - 450  + z, 750  - i, 200 , 50 );
                 Rectangle rect = new Rectangle(
-                    m_writerData.PageSize.Width - 90f, 830f,
-                    m_writerData.PageSize.Width - 40f, 880f);
+                    m_writerData.PageSize.Width - 90 , 830 ,
+                m_writerData.PageSize.Width - 40 , 880 );
 
                 ca.Stroke();
                 //Consigne pour le doc
@@ -156,9 +157,9 @@ namespace ROCAD.Controller
 
                 //case avant ligne
                 iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance("qcm.png");
-                PNG.ScalePercent(15f);
-                PNG.SetAbsolutePosition(m_writerData.PageSize.Width - 36f - 460f,
-                    m_writerData.PageSize.Height - 36f - 350f);
+                PNG.ScalePercent(15 );
+                PNG.SetAbsolutePosition(m_writerData.PageSize.Width - 36  - 460 ,
+                m_writerData.PageSize.Height - 36  - 350 );
                 m_writerData.Add(PNG);
 
                 //Texte explicatif pour bien cocher
@@ -175,7 +176,7 @@ namespace ROCAD.Controller
                 c7.EndText();
                 //ligne
 
-                c6.SetLineWidth(0f);
+                c6.SetLineWidth(0 );
                 c6.MoveTo(30, 440);
                 c6.LineTo(570, 440);
                 c6.Stroke();
@@ -183,23 +184,19 @@ namespace ROCAD.Controller
 
                 // --------------------------------------------- QUESTIONS  --------------------------------------------
                 // ON DEFINIT MAX 4 QUESTIONS SUR LA PREMIERE PAGE, ET LE DOUBLE SUR LES AUTRES
-                List<Question> questions = this.m_referencedProject.subject(studentK).questionList();
+                List < Question > questions = this.m_referencedProject.subject(studentK).questionList();
                 int positionerY = 0;
-                int positiionerX = 70;
+                int positionerX = 70;
                 int pageCursor = 1;
                 int malus = 0;
 
-                for (int m = 0; m < questions.Count; m++)
-                {
+                for (int m = 0; m < questions.Count; m++) {
                     Question q = questions[m];
-                    positiionerX = 70;
+                    positionerX = 70;
 
-                    if (pageCursor > 1)
-                    {
-                        positionerY = 900 - ((m-malus) * 100);
-                    }
-                    else
-                    {
+                    if (pageCursor > 1) {
+                        positionerY = 900 - ((m - malus) * 100);
+                    } else {
                         positionerY = 400 - (m * 100);
                     }
 
@@ -207,42 +204,39 @@ namespace ROCAD.Controller
                     c6.SetFontAndSize(b2, 10);
                     c6.ShowTextAligned(PdfContentByte.ALIGN_LEFT,
                         q.description(),
-                        positiionerX, positionerY, 0);
+                        positionerX, positionerY, 0);
                     c6.EndText();
 
-                    for (int v = 0; v < q.getResponseList().Count; v++)
-                    {
+                    for (int v = 0; v < q.getResponseList().Count; v++) {
 
                         Response r = q.getResponseList()[v];
 
-                        positiionerX = 100;
+                        positionerX = 100;
                         positionerY -= 17;
 
-                        cb.Rectangle(positiionerX, positionerY, 10f, 10f);
+                        cb.Rectangle(positionerX, positionerY, 10 , 10 );
                         cb.Stroke();
 
-                        positiionerX = 120;
+                        positionerX = 120;
 
                         c6.BeginText();
                         c6.SetFontAndSize(b2, 10);
                         c6.ShowTextAligned(PdfContentByte.ALIGN_LEFT,
                             r.description(),
-                            positiionerX, positionerY, 0);
+                            positionerX, positionerY, 0);
                         c6.EndText();
-                    }
-                    if ((m + 1) % 4 == 0)
-                    {
-                        if (pageCursor == 1)
-                        {
 
+                        r.x = positionerX;
+                        r.y = positionerY;
+                    }
+                    if ((m + 1) % 4 == 0) {
+                        if (pageCursor == 1) {
                             pageCursor += 1;
                             m_writerData.NewPage();
                             malus = 3;
                             cb = m_writer.DirectContent;
                             writeHeadeIdentifier();
-                        }
-                        else if((m+1) % 12 == 0)
-                        {
+                        } else if ((m + 1) % 12 == 0) {
                             pageCursor += 1;
                             m_writerData.NewPage();
                             cb = m_writer.DirectContent;
@@ -250,7 +244,7 @@ namespace ROCAD.Controller
                             writeHeadeIdentifier();
                         }
                     }
-                   }
+                }
 
             }
 
@@ -260,41 +254,45 @@ namespace ROCAD.Controller
 
         }
 
-        private void writeHeadeIdentifier()
-        {
+        private void writeHeadeIdentifier() {
             PdfContentByte cb = m_writer.DirectContent;
             //BLOC D'IDENTIFICATION
-            for (int b = 0; b < 12; b++)
-            {
-                for (int u = 0; u < 2; u++)
-                {
-                    cb.Rectangle(-b*10 + 550, u*10 + 800,10,10);
+            for (int b = 0; b < 12; b++) {
+                for (int u = 0; u < 2; u++) {
+                    cb.Rectangle(-b * 10 + 550, u * 10 + 800, 10, 10);
                     cb.Stroke();
                 }
             }
         }
 
-        private static int RandomNumber(int min, int max)
-            {
-                Random random = new Random();
-                return random.Next(min, max);
-            }
+        private static int RandomNumber(int min, int max) {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
 
-        public void initDocumentCreation(Project p)
-        {
+        public void initDocumentCreation(Project p) {
             this.QCM_TITLE = p.title();
-            this.QCM_FILEPATH = QCM_TITLE+ ".pdf";
+            this.QCM_FILEPATH = QCM_TITLE + ".pdf";
             this.QCM_DATE = p.date();
             this.QCM_TIME = p.time();
 
             this.m_writerData = new Document();
-            this.m_writer = PdfWriter.GetInstance(this.m_writerData, new FileStream(QCM_FILEPATH,FileMode.Create));
+            this.m_writer = PdfWriter.GetInstance(this.m_writerData, new FileStream(QCM_FILEPATH, FileMode.Create));
             this.m_writerData.Open();
 
             this.m_referencedProject = p;
         }
 
-       }
+        public void pdfToBmp(string path)
+        {
+            Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(path);
+            using (FileStream imageStream = new FileStream(path+".png", FileMode.Create))
+            {
+                Resolution resolution = new Resolution(300);
+                PngDevice pngDevice = new PngDevice(resolution);
+                pngDevice.Process(pdfDocument.Pages[1], imageStream);
+                imageStream.Close();
+            }
+        }
     }
-
-
+}

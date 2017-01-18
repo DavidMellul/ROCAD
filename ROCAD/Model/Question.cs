@@ -14,8 +14,7 @@ namespace ROCAD.Model
         private double m_bonus;
         private double m_malus;
 
-        //GRAPHICAL DATA PART
-        private int m_x, m_y;
+
 
         // RESPONSES
         private List<Response> m_responseList;
@@ -60,7 +59,7 @@ namespace ROCAD.Model
             this.m_bonus = bonus;
             this.m_malus = malus;
 
-            this.m_responseList = responseList;
+            this.m_responseList = Utils.Utils.shuffleList(responseList);
             this.m_answerList = answerList;
         }
 
@@ -95,15 +94,6 @@ namespace ROCAD.Model
             return this.m_answerList;
         }
 
-        public void setXY(int x, int y)
-        {
-            this.m_x = x;
-            this.m_y = y;
-        }
 
-        public int getX()
-        {
-            return this.m_x;
-        }
     }
 }
