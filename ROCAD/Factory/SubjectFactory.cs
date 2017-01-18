@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using ROCAD.Model;
 
@@ -9,14 +10,15 @@ namespace ROCAD.Factory
     public class SubjectFactory
     {
         //DATA PART
-        private List<Subject> m_subjectList;
+        private Dictionary<string,Subject> m_subjectList;
         private Project m_referencedProject;
         private Subject m_originalSubject;
 
         public SubjectFactory(Project p)
         {
-            this.m_subjectList = new List<Subject>();
+            this.m_subjectList = new Dictionary<string, Subject>();
             this.m_referencedProject = p;
+            //a
         }
 
 
@@ -37,14 +39,19 @@ namespace ROCAD.Factory
             for (int i = 0; i < students.Count; i++)
             {
                 Subject s = new Subject(Utils.Utils.shuffleList(m_referencedProject.subject().questionList()),students[i]);
-                this.m_subjectList.Add(s);
+                this.m_subjectList[students[i].id()] =  s;
             }
-            return this.m_subjectList;
+            return this.m_subjectList.Values.ToList();
         }
 
         public List<Subject> getSubjects()
         {
-            return this.m_subjectList;
+            return this.m_subjectList.Values.ToList();
+        }
+
+        public Subject getSubject(Student s)
+        {
+            return this.m_subjectList[s.id()];
         }
     }
 }

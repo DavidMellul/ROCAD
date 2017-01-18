@@ -82,6 +82,11 @@ namespace ROCAD.Model
             return this.m_subjectFactory.getSubjects();
         }
 
+        public Subject subject(Student s)
+        {
+            return this.m_subjectFactory.getSubject(s);
+        }
+
         public void addStudent(Student s)
         {
             this.m_studentFactory.createStudent(s.id(), s.responsesAnswered());
