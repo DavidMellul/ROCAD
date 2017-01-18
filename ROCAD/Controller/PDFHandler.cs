@@ -179,7 +179,7 @@ namespace ROCAD.Controller
                 c6.Stroke();
 
                 m_writerData.Close();
-                System.Diagnostics.Process.Start();
+                //System.Diagnostics.Process.Start();
             }
         }
 
@@ -194,7 +194,7 @@ namespace ROCAD.Controller
             this.QCM_TITLE = p.title();
             this.QCM_FILEPATH = Environment.CurrentDirectory + "/" + QCM_TITLE + ".pdf";
             this.QCM_DATE = p.date();
-            this.QCM_TIME = p.time()
+            this.QCM_TIME = p.time();
 
             this.m_writerData = new Document();
             this.m_writer = PdfWriter.GetInstance(this.m_writerData, new FileStream(QCM_FILEPATH,FileMode.Create));

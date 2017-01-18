@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using ROCAD.Controller;
 using ROCAD.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ROCAD.View;
 
 namespace ROCAD.Core
 {
     internal class Launcher
     {
         public static void Main(string[] args)
-        {
+        {/*
             Response rPossible1 = new Response("A");
             Response rPossible2 = new Response("D");
             Response rPossible3 = new Response("C");
@@ -68,7 +74,11 @@ namespace ROCAD.Core
             l.Add(stu);
             ExportationHandler.exportAsCsv(l, "test.xlsx");
 
-            PDFHandler.func();
+            PDFHandler.func();*/
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form5());
         }
     }
 }
