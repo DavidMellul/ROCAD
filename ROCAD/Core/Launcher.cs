@@ -4,12 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using ROCAD.Controller;
 using ROCAD.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ROCAD.View;
 
 namespace ROCAD.Core
 {
@@ -59,7 +53,11 @@ namespace ROCAD.Core
 
             String title = "DS_deSaumon";
             String path = title + "";
-            Project p = new Project("Pallez", title, s);
+            Project p = new Project("Denis Pallez","BD",s,"60","18/01/2017");
+            Student stu2 = new Student("52",listeQuestionsEtudiant);
+
+            p.addStudent(stu);
+            p.addStudent(stu2);
 
             p.save(path);
             Project p_load = Project.load(path);
@@ -72,11 +70,12 @@ namespace ROCAD.Core
 
             List<Student> l = new List<Student>();
             l.Add(stu);
+
             ExportationHandler.exportAsCsv(l, "test.xlsx");
 
-            PDFHandler.func();
-
-            
+            PDFHandler pdf = new PDFHandler();
+            pdf.initDocumentCreation(p);
+            pdf.generateSheets();
         }
     }
 }

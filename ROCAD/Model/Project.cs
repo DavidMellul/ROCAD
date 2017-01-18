@@ -21,8 +21,8 @@ namespace ROCAD.Model
         private String m_date;
         
         // FACTORIES
-        private SubjectFactory m_subjectFactory = new SubjectFactory();
-        private StudentFactory m_studentFactory = new StudentFactory();
+        private SubjectFactory m_subjectFactory ;
+        private StudentFactory m_studentFactory;
 
         public Project() { }
 
@@ -32,6 +32,9 @@ namespace ROCAD.Model
             m_subject = subject;
             m_time = time;
             m_date = date;
+
+            m_subjectFactory = new SubjectFactory(this);
+            m_studentFactory = new StudentFactory();
         }
 
         public void save(String path) {
