@@ -5,6 +5,7 @@ using ROCAD.Model;
 
 namespace ROCAD.Factory
 {
+    [Serializable()]
     public class SubjectFactory
     {
         //DATA PART
@@ -16,6 +17,7 @@ namespace ROCAD.Factory
         private SubjectFactory()
         {
             this.m_subjectList = new List<Subject>();
+            this.m_originalSubject = new Subject();
         }
         public static SubjectFactory getInstance()
         {
@@ -39,6 +41,11 @@ namespace ROCAD.Factory
                 Subject s = new Subject(Utils.Utils.shuffleList(m_originalSubject.questionList()));
                 this.m_subjectList.Add(s);
             }
+            return this.m_subjectList;
+        }
+
+        public List<Subject> getSubjects()
+        {
             return this.m_subjectList;
         }
     }

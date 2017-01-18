@@ -1,27 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
+using ROCAD.Factory;
 
 namespace ROCAD.Model
 {
 
 // Classe de sauvegarde d'un projet/sujet
-[Serializable]
+[Serializable()]
     public class Project
     {
-        // Attributs
-        [XmlAttribute]
-        private String m_author { get; set; }
-        [XmlAttribute]
-        private String m_title { get; set; }
-        [XmlAttribute]
-        private Subject m_subject { get; set; }
-
+        // DATA PART
+        private String m_author;
+        private String m_title;
+        private Subject m_subject;
         
+        // FACTORIES
+        private SubjectFactory m_subjectFactory = SubjectFactory.getInstance();
+        private StudentFactory m_studentFactory = StudentFactory.getInstance();
 
         public Project() { }
 
@@ -32,20 +30,19 @@ namespace ROCAD.Model
         }
 
         public void save(String path) {
-            XmlSerializer serializer = new XmlSerializer(typeof(Project));
-            StreamWriter ecrivain = new StreamWriter(path, false);
-            serializer.Serialize(ecrivain, this);
-            ecrivain.Close();
+            Stream stream = File.Open(path, FileMode.OpenOrCreate);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream,this);
+            stream.Close();
         }
 
         public static Project load (string path)
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(Project));
-            StreamReader reader = new StreamReader(path);
-            Project p = (Project)deserializer.Deserialize(reader);
-            reader.Close();
-
-            return p;
+            Stream stream = File.Open(path, FileMode.Open);
+            BinaryFormatter formatter = new BinaryFormatter();
+            Project loaded = (Project)formatter.Deserialize(stream);
+            stream.Close();
+            return loaded;
         }
 
         public String author() {
@@ -66,7 +63,6 @@ namespace ROCAD.Model
                 return false;
             return this.title().Equals(((Project)r).title());
         }
-
 
 
     }

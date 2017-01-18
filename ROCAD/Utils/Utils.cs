@@ -15,5 +15,10 @@ namespace ROCAD.Utils
             Console.WriteLine(list.GetHashCode());
             return shuffledList;
         }
+
+        public static string generateRandomProjectIdentifier()
+        {
+            return "";
+        }
     }
 }
