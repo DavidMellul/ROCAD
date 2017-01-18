@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
-//using ClosedXML.Excel;
+using ClosedXML.Excel;
 using ROCAD.Model;
 
 namespace ROCAD.Controller
@@ -21,12 +21,12 @@ namespace ROCAD.Controller
             {
                 dt.Rows.Add(s.id(), s.grade());
             }
-            /*using (XLWorkbook wb = new XLWorkbook())
+            using (XLWorkbook wb = new XLWorkbook())
             {
                 wb.Worksheets.Add(dt, "Results");
                 wb.SaveAs(path);
 
-            }*/
+            }
         }
     }
 }

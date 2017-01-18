@@ -71,7 +71,7 @@ namespace ROCAD.Core
             List<Student> l = new List<Student>();
             l.Add(stu);
 
-            ExportationHandler.exportAsCsv(l, "test.xlsx");
+            ExportationHandler.exportAsCsv(p.studentList(), p.title()+"_"+p.date()+"_"+p.time());
 
             PDFHandler pdf = new PDFHandler();
             pdf.initDocumentCreation(p);

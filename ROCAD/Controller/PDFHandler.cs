@@ -182,7 +182,17 @@ namespace ROCAD.Controller
 
 
                 // --------------------------------------------- QUESTIONS  --------------------------------------------
+                List<Question> questions = this.m_referencedProject.subject(studentK).questionList();
 
+                foreach (Question q in questions)
+                {
+                    c6.BeginText();
+                    c6.SetFontAndSize(b2, 10);
+                    c6.ShowTextAligned(PdfContentByte.ALIGN_LEFT,
+                        q.description(),
+                        95, 500, 0);
+                    c6.EndText();
+                }
             }
 
             m_writerData.Close();
