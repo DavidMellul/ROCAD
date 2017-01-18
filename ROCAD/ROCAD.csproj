@@ -48,7 +48,7 @@
     <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>WindowsFormsApplication1.Program</StartupObject>
+    <StartupObject>ROCAD.Core.Launcher</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
@@ -113,7 +113,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Form7.Designer.cs" />
-    <Compile Include="View\Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
