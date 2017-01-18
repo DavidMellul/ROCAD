@@ -8,7 +8,6 @@ using System.Net.Mime;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Aspose.Pdf.Devices;
-using Bytescout.PDFRenderer;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using ROCAD.Factory;
@@ -35,7 +34,6 @@ namespace ROCAD.Controller {
 
             for (int k = 1; k <= students.Count; k++) {
                 Student studentK = students[k - 1];
-                Debug.WriteLine(studentK.id());
                 m_writerData.NewPage();
 
                 PdfContentByte cb = m_writer.DirectContent;
@@ -207,9 +205,9 @@ namespace ROCAD.Controller {
                         positionerX, positionerY, 0);
                     c6.EndText();
 
-                    for (int v = 0; v < q.getResponseList().Count; v++) {
+                    for (int v = q.getResponseList().Count; v  > 0; v--) {
 
-                        Response r = q.getResponseList()[v];
+                        Response r = q.getResponseList()[v-1];
 
                         positionerX = 100;
                         positionerY -= 17;
@@ -226,8 +224,11 @@ namespace ROCAD.Controller {
                             positionerX, positionerY, 0);
                         c6.EndText();
 
-                        r.x = positionerX;
-                        r.y = positionerY;
+                        // On ajuste pour que ça corresponde à l'image jpeg générée qui a une résolution etc qui font que ça fout le bordel sinon
+                        r.x = positionerX+88;
+                        r.y = (int) (positionerY+604);
+                        r.y +=  (int) ((q.getResponseList().Count - v-1) * 52);
+                        Debug.WriteLine(r.y);
                     }
                     if ((m + 1) % 4 == 0) {
                         if (pageCursor == 1) {
@@ -250,7 +251,7 @@ namespace ROCAD.Controller {
 
             m_writerData.Close();
             m_writer.Close();
-            System.Diagnostics.Process.Start(this.QCM_FILEPATH);
+        //    System.Diagnostics.Process.Start(this.QCM_FILEPATH);
 
         }
 
@@ -285,12 +286,11 @@ namespace ROCAD.Controller {
 
         public void pdfToBmp(string path)
         {
-            Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(path);
-            using (FileStream imageStream = new FileStream(path+".png", FileMode.Create))
+            Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(path+".pdf");
+            using (FileStream imageStream = new FileStream(path+".jpg", FileMode.Create))
             {
-                Resolution resolution = new Resolution(300);
-                PngDevice pngDevice = new PngDevice(resolution);
-                pngDevice.Process(pdfDocument.Pages[1], imageStream);
+                JpegDevice jpegDevice = new JpegDevice();
+                jpegDevice.Process(pdfDocument.Pages[1], imageStream);
                 imageStream.Close();
             }
         }

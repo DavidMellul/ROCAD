@@ -27,7 +27,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -40,17 +40,11 @@
     <Reference Include="Aspose.Pdf, Version=17.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
       <HintPath>..\packages\Aspose.Pdf.17.1.0\lib\net40-client\Aspose.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="Bytescout.PDFRenderer, Version=8.2.0.2699, Culture=neutral, PublicKeyToken=f7dd1bd9d40a50eb">
-      <HintPath>..\packages\Bytescout.PDFRenderer.8.2.0.2699\lib\net40\Bytescout.PDFRenderer.dll</HintPath>
-    </Reference>
     <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b">
       <HintPath>..\packages\ClosedXML.0.86.0\lib\net40\ClosedXML.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageMagickSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ImageMagickSharp.1.0.0.18\lib\net45\ImageMagickSharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
       <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
@@ -91,7 +85,6 @@
     <Compile Include="Core\Launcher.cs" />
     <Compile Include="Factory\StudentFactory.cs" />
     <Compile Include="Factory\SubjectFactory.cs" />
-    <Compile Include="Model\OtsuSheet.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Question.cs" />

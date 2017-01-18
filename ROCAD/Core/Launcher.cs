@@ -8,6 +8,7 @@ using ROCAD.View;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PT_Lot4;
 
 
 namespace ROCAD.Core
@@ -16,15 +17,20 @@ namespace ROCAD.Core
     {
         public static void Main(string[] args)
         {
+            String title = "DS_deSaumon";
+            String path = title + "";
+            Project p_load = Project.load(path);
 
+           MarkRecognizer.analyzeSheet(p_load.subjectList()[0], p_load.title());
+
+
+/*
+*/
+/*
                 Response rPossible1 = new Response("A");
-                Response rPossible2 = new Response("D");
+                Response rPossible2 = new Response("B");
                 Response rPossible3 = new Response("C");
-                Response rPossible4 = new Response("B");
-
-                List<Response> lrEtudiant = new List<Response>();
-
-
+                Response rPossible4 = new Response("D");
 
                 List<Response> lrQuestionPossible = new List<Response>();
                 lrQuestionPossible.Add(rPossible1);
@@ -33,65 +39,38 @@ namespace ROCAD.Core
                 lrQuestionPossible.Add(rPossible4);
 
                 List<Response> lrQuestionBonne = new List<Response>();
-                lrQuestionBonne.Add(rPossible4);
-                lrQuestionBonne.Add(rPossible3);
                 lrQuestionBonne.Add(rPossible2);
 
 
                 Question qEtudiant = new Question("MAMENE ??? TRES SALE? ", 5, 5, lrQuestionPossible, lrQuestionBonne);
-                Question qEtudiant2 = new Question("MAMENE ??? TRES SALE? ", 5, 5, lrQuestionPossible, lrQuestionBonne);
-                Question qSujet = new Question("MAMENE", 5,5, lrQuestionPossible, lrQuestionBonne);
 
                 List<Question> listeQuestionsSujet = new List<Question>();
-                listeQuestionsSujet.Add(qSujet);
                 listeQuestionsSujet.Add(qEtudiant);
-                listeQuestionsSujet.Add(qEtudiant2);
 
 
-
-
-
-
-            List<Question> listeQuestionsEtudiant = new List<Question>();
-                listeQuestionsEtudiant.Add(qEtudiant);
-
-                Student stu = new Student("21502022",listeQuestionsEtudiant);
+                Student stu = new Student("21502022", new List<Question>());
                 Subject s = new Subject(listeQuestionsSujet, stu);
 
-                CorrectionHandler.correct(s);
 
-
-                Console.WriteLine(stu);
-
-                String title = "DS_deSaumon";
-                String path = title + "";
-                Project p = new Project("Denis Pallez","BD",s,"60","18/01/2017");
-                Student stu2 = new Student("52",listeQuestionsEtudiant);
-
+                Project p = new Project("Denis Pallez", "BD", s, "60", "18/01/2017");
                 p.addStudent(stu);
-                p.addStudent(stu2);
-
-                p.save(path);
-                Project p_load = Project.load(path);
-
-
-                Debug.WriteLine(p.title());
-                Debug.WriteLine(p_load.title());
-                if (p.Equals(p_load)) Debug.WriteLine("t'as save mec !");
-
+                p.setOriginalSubject(s);
 
                 List<Student> l = new List<Student>();
                 l.Add(stu);
 
-                ExportationHandler.exportAsCsv(l, p.title()+".xlsx");
 
-            p.setOriginalSubject(s);
+                   PDFHandler pdf = new PDFHandler();
+                   pdf.initDocumentCreation(p);
+                   pdf.generateSheets();
+            p.save(path);
+            pdf.pdfToBmp(p.title());
 
-                PDFHandler pdf = new PDFHandler();
-                pdf.initDocumentCreation(p);
-                pdf.generateSheets();
+*/
 
-            pdf.pdfToBmp("BD.pdf");
+            /*  MarkRecognizer.analyzeSheet(p.subjectList()[0],"BD");
+              ExportationHandler.exportAsCsv(l, p.title()+".xlsx");
+*/
 
             /*    Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

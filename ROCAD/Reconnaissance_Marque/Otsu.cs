@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Drawing;
@@ -55,7 +56,7 @@ namespace OtsuThreshold
         }
 
         // simply computes the image histogram
-        unsafe private void getHistogram(byte* p, int w, int h, int ws, int[] hist)
+        private unsafe void getHistogram(byte* p, int w, int h, int ws, int[] hist)
         {
             hist.Initialize();
             for (int i = 0; i < h; i++)

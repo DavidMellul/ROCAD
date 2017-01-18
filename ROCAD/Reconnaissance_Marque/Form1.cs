@@ -25,18 +25,17 @@ namespace PT_Lot4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
+     /*       OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "All files (*.*)|*.*";
+*/
 
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+        //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image = Bitmap.FromFile(openFileDialog1.FileName);
+                pictureBox1.Image = new Bitmap(Bitmap.FromFile("BD.jpg"));
 
             }
 
-            copieEtudiant.setStudentCopy((Bitmap)pictureBox1.Image.Clone());
+            copieEtudiant.setStudentCopy(new Bitmap(Bitmap.FromFile("BD.jpg")));
             copieEtudiant.convertirImageBinaire(); // Conversion de l'image en couleur en image binaire
             pictureBox1.Image = copieEtudiant.getStudentCopy();
            

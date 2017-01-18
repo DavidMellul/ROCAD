@@ -28,6 +28,7 @@ namespace ROCAD.Model
             this.m_malus = 0;
 
             this.m_responseList = new List<Response>();
+            this.m_answerList = new List<Response>();
         }
 
         public Question(string description, int bonus, int malus)
@@ -39,6 +40,17 @@ namespace ROCAD.Model
 
             this.m_responseList = new List<Response>();
             this.m_answerList = new List<Response>();
+        }
+
+        public Question(List<Response> answerList)
+        {
+            this.m_id = ID++.ToString();
+            this.m_description = "undefined";
+            this.m_bonus = 0;
+            this.m_malus = 0;
+
+            this.m_responseList = new List<Response>();
+            this.m_answerList = answerList;
         }
 
         public Question(string description, int bonus, int malus, List<Response> answerList)
