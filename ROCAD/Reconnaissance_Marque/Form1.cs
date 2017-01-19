@@ -25,9 +25,9 @@ namespace PT_Lot4
 
         private void button1_Click(object sender, EventArgs e)
         {
-     /*       OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "All files (*.*)|*.*";
-*/
+
 
         //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {

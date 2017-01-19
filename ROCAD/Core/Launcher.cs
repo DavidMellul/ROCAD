@@ -15,8 +15,9 @@ namespace ROCAD.Core
 {
     internal class Launcher
     {
+        [STAThread]
         public static void Main(string[] args)
-        {/*
+        {
             String title = "DS_deSaumon";
             String path = title + "";
             Project p_load = Project.load(path);
@@ -25,26 +26,76 @@ namespace ROCAD.Core
 
 
 
+
                 Response rPossible1 = new Response("A");
                 Response rPossible2 = new Response("B");
                 Response rPossible3 = new Response("C");
                 Response rPossible4 = new Response("D");
 
-                List<Response> lrQuestionPossible = new List<Response>();
-                lrQuestionPossible.Add(rPossible1);
-                lrQuestionPossible.Add(rPossible2);
-                lrQuestionPossible.Add(rPossible3);
-                lrQuestionPossible.Add(rPossible4);
+                List<Response> lrQuestionPossible1 = new List<Response>();
+                lrQuestionPossible1.Add(rPossible1);
+                lrQuestionPossible1.Add(rPossible2);
+                lrQuestionPossible1.Add(rPossible3);
+                lrQuestionPossible1.Add(rPossible4);
 
-                List<Response> lrQuestionBonne = new List<Response>();
-                lrQuestionBonne.Add(rPossible2);
+                List<Response> lrQuestionBonne1 = new List<Response>();
+                lrQuestionBonne1.Add(rPossible2);
 
 
-                Question qEtudiant = new Question("MAMENE ??? TRES SALE? ", 5, 5, lrQuestionPossible, lrQuestionBonne);
+            Response rPossible5 = new Response("E");
+            Response rPossible6 = new Response("F");
+            Response rPossible7 = new Response("G");
+            Response rPossible8 = new Response("H");
 
-                List<Question> listeQuestionsSujet = new List<Question>();
-                listeQuestionsSujet.Add(qEtudiant);
+            List<Response> lrQuestionPossible2 = new List<Response>();
+            lrQuestionPossible2.Add(rPossible5);
+            lrQuestionPossible2.Add(rPossible6);
+            lrQuestionPossible2.Add(rPossible7);
+            lrQuestionPossible2.Add(rPossible8);
 
+            List<Response> lrQuestionBonne2 = new List<Response>();
+            lrQuestionBonne2.Add(rPossible6);
+
+            Response rPossible9 = new Response("I");
+            Response rPossible10 = new Response("J");
+            Response rPossible11 = new Response("K");
+            Response rPossible12 = new Response("L");
+
+            List<Response> lrQuestionPossible3 = new List<Response>();
+            lrQuestionPossible3.Add(rPossible9);
+            lrQuestionPossible3.Add(rPossible10);
+            lrQuestionPossible3.Add(rPossible11);
+            lrQuestionPossible3.Add(rPossible12);
+
+            List<Response> lrQuestionBonne3 = new List<Response>();
+            lrQuestionBonne3.Add(rPossible10);
+
+            Response rPossible13 = new Response("M");
+            Response rPossible14 = new Response("N");
+            Response rPossible15 = new Response("O");
+            Response rPossible16 = new Response("P");
+
+            List<Response> lrQuestionPossible4 = new List<Response>();
+            lrQuestionPossible4.Add(rPossible13);
+            lrQuestionPossible4.Add(rPossible14);
+            lrQuestionPossible4.Add(rPossible15);
+            lrQuestionPossible4.Add(rPossible16);
+
+            List<Response> lrQuestionBonne4 = new List<Response>();
+            lrQuestionBonne4.Add(rPossible14);
+
+
+
+
+            Question Q1 = new Question("MAMENE 1 ", 5, 5, lrQuestionPossible1, lrQuestionBonne1);
+            Question Q2 = new Question("MAMENE 2 ", 5, 5, lrQuestionPossible2, lrQuestionBonne2);
+            Question Q3 = new Question("MAMENE 3 ", 5, 5, lrQuestionPossible3, lrQuestionBonne3);
+            Question Q4 = new Question("MAMENE 4 ", 5, 5, lrQuestionPossible4, lrQuestionBonne4);
+
+            List<Question> listeQuestionsSujet = new List<Question>();
+            listeQuestionsSujet.Add(Q1);
+            listeQuestionsSujet.Add(Q2);
+            listeQuestionsSujet.Add(Q4);
 
                 Student stu = new Student("21502022", new List<Question>());
                 Subject s = new Subject(listeQuestionsSujet, stu);
@@ -64,15 +115,16 @@ namespace ROCAD.Core
             p.save(path);
             pdf.pdfToBmp(p.title());
 
-*/
+
 
             /*  MarkRecognizer.analyzeSheet(p.subjectList()[0],"BD");
               ExportationHandler.exportAsCsv(l, p.title()+".xlsx");
-*/
 
-                Application.EnableVisualStyles();
+
+             /*   Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form5());
+*/
     
         }
     }

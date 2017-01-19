@@ -40,16 +40,15 @@ namespace ROCAD.Controller
               {
                   if (analyse.isChecked(new Rectangle(r.x, r.y, 23,23)))
                   {
+                      Debug.WriteLine(r.description());
                       answer.getAnswerList().Add(r);
                   }
               }
-              Debug.WriteLine(answer.getAnswerList().Count);
               studentResponses.Add(answer);
           }
 
           s.student().setAnswerList(studentResponses);
           CorrectionHandler.correct(s);
-          Debug.WriteLine(s.student().grade());
         }
 
 

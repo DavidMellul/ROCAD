@@ -227,10 +227,10 @@ namespace ROCAD.Controller {
                         // On ajuste pour que ça corresponde à l'image jpeg générée qui a une résolution etc qui font que ça fout le bordel sinon
                         r.x = positionerX+88;
                         r.y = (int) (positionerY+604);
-                        r.y +=  (int) ((q.getResponseList().Count - v-1) * 52);
+                        r.y +=  (int) ((q.getResponseList().Count - v-1) * 52)+(m*300)+(m*8);
                         Debug.WriteLine(r.y);
                     }
-                    if ((m + 1) % 4 == 0) {
+                   if ((m + 1) % 4 == 0) {
                         if (pageCursor == 1) {
                             pageCursor += 1;
                             m_writerData.NewPage();
@@ -245,13 +245,15 @@ namespace ROCAD.Controller {
                             writeHeadeIdentifier();
                         }
                     }
+
                 }
+
 
             }
 
             m_writerData.Close();
             m_writer.Close();
-        //    System.Diagnostics.Process.Start(this.QCM_FILEPATH);
+            System.Diagnostics.Process.Start(this.QCM_FILEPATH);
 
         }
 

@@ -36,7 +36,7 @@ namespace ROCAD.View
         private void button3_Click(object sender, EventArgs e)
         {
             
-            f6.Show();
+            new Form6().Show();
         }
 
 
@@ -107,7 +107,7 @@ namespace ROCAD.View
 
         private void button7_Click(object sender, EventArgs e)
         {
-            f8.Show();
+            new Form8().Show();
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace ROCAD.View
 
         private void settings_Click(object sender, EventArgs e)
         {
-            s1.Show();
+            new Settings().Show();
         }
     }
 }
