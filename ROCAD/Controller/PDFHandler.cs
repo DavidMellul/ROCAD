@@ -154,11 +154,11 @@ namespace ROCAD.Controller {
                 c6.EndText();
 
                 //case avant ligne
-                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance("qcm.png");
+               /* iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance("qcm.png");
                 PNG.ScalePercent(15 );
                 PNG.SetAbsolutePosition(m_writerData.PageSize.Width - 36  - 460 ,
                 m_writerData.PageSize.Height - 36  - 350 );
-                m_writerData.Add(PNG);
+                m_writerData.Add(PNG);*/
 
                 //Texte explicatif pour bien cocher
                 PdfContentByte c7 = m_writer.DirectContent;

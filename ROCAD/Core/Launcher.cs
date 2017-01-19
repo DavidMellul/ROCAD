@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using ROCAD.Controller;
 using ROCAD.Model;
-using ROCAD.View;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PT_Lot4;
-
+using ROCAD.View;
 
 namespace ROCAD.Core
 {
@@ -20,9 +19,9 @@ namespace ROCAD.Core
         {
             String title = "DS_deSaumon";
             String path = title + "";
-            Project p_load = Project.load(path);
+            //Project p_load = Project.load(path);
 
-           MarkRecognizer.analyzeSheet(p_load.subjectList()[0], p_load.title());
+          // MarkRecognizer.analyzeSheet(p_load.subjectList()[0], p_load.title());
 
 
 
@@ -117,14 +116,14 @@ namespace ROCAD.Core
 
 
 
-            /*  MarkRecognizer.analyzeSheet(p.subjectList()[0],"BD");
+            MarkRecognizer.analyzeSheet(p.subjectList()[0],"BD");
               ExportationHandler.exportAsCsv(l, p.title()+".xlsx");
 
 
-             /*   Application.EnableVisualStyles();
+               Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form5());
-*/
+                Application.Run(new mainWindow());
+
     
         }
     }

@@ -10,20 +10,14 @@ using System.Windows.Forms;
 
 namespace ROCAD.View
 {
-    public partial class Form9 : Form
+    public partial class CorrectTermineeFr : Form
     {
-        public Form9()
+        public CorrectTermineeFr()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form9_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

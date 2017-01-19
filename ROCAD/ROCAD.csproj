@@ -90,11 +90,15 @@
     <Compile Include="Factory\StudentFactory.cs" />
     <Compile Include="Factory\SubjectFactory.cs" />
     <Compile Include="Model\Project.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Reconnaissance_Marque\Analyse.cs" />
     <Compile Include="Reconnaissance_Marque\Case.cs" />
     <Compile Include="Reconnaissance_Marque\CopyOtsu.cs" />
@@ -106,49 +110,159 @@
     <Compile Include="Reconnaissance_Marque\ZoneNumEtudiant.cs" />
     <Compile Include="Reconnaissance_Marque\ZoneNumSujet.cs" />
     <Compile Include="Utils\Utils.cs" />
-    <Compile Include="View\Form5.cs">
+    <Compile Include="View\Accueil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form5.Designer.cs" />
-    <Compile Include="View\Form6.cs">
+    <Compile Include="View\Accueil.designer.cs">
+      <DependentUpon>Accueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CorrectQCMEn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form6.Designer.cs" />
-    <Compile Include="View\Form7.cs">
+    <Compile Include="View\CorrectQCMEn.designer.cs">
+      <DependentUpon>CorrectQCMEn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CorrectQCMFr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form7.Designer.cs" />
-    <Compile Include="View\Form8.cs">
+    <Compile Include="View\CorrectQCMFr.designer.cs">
+      <DependentUpon>CorrectQCMFr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CorrectTermineeEn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form8.Designer.cs" />
-    <Compile Include="View\Form9.cs">
+    <Compile Include="View\CorrectTermineeEn.designer.cs">
+      <DependentUpon>CorrectTermineeEn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CorrectTermineeFr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form9.Designer.cs" />
-    <Compile Include="View\Settings.cs">
+    <Compile Include="View\CorrectTermineeFr.designer.cs">
+      <DependentUpon>CorrectTermineeFr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreaQcm2En.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Settings.Designer.cs" />
+    <Compile Include="View\CreaQcm2En.designer.cs">
+      <DependentUpon>CreaQcm2En.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreaQcm2Fr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreaQcm2Fr.designer.cs">
+      <DependentUpon>CreaQcm2Fr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\creationQcmEn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\creationQcmEn.designer.cs">
+      <DependentUpon>creationQcmEn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\creationQcmFr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\creationQcmFr.designer.cs">
+      <DependentUpon>creationQcmFr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\settingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\settingsWindow.designer.cs">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\ROCAD.exe.config" />
+    <None Include="bin\Debug\ROCAD.vshost.exe.config" />
+    <None Include="bin\Debug\ROCAD.vshost.exe.manifest" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ROCAD.csproj.GenerateResource.Cache" />
+    <None Include="obj\Debug\ROCAD.csproj.ROCAD.exe.config" />
+    <None Include="obj\Debug\ROCAD.csprojResolveAssemblyReference.cache" />
+    <None Include="Properties\Settings.settings" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="bin\Debug\Aspose.Pdf.dll" />
+    <Content Include="bin\Debug\Aspose.Pdf.xml" />
+    <Content Include="bin\Debug\ClosedXML.dll" />
+    <Content Include="bin\Debug\ClosedXML.pdb" />
+    <Content Include="bin\Debug\de\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\DocumentFormat.OpenXml.dll" />
+    <Content Include="bin\Debug\en\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\es\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\fr\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\itextsharp.dll" />
+    <Content Include="bin\Debug\itextsharp.xml" />
+    <Content Include="bin\Debug\it\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\ja\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\ko\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\MetroFramework.Design.dll" />
+    <Content Include="bin\Debug\MetroFramework.dll" />
+    <Content Include="bin\Debug\MetroFramework.Fonts.dll" />
+    <Content Include="bin\Debug\ROCAD.exe" />
+    <Content Include="bin\Debug\ROCAD.pdb" />
+    <Content Include="bin\Debug\ROCAD.vshost.exe" />
+    <Content Include="bin\Debug\ru\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\System.Windows.Interactivity.dll" />
+    <Content Include="bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll" />
+    <Content Include="bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll" />
     <Content Include="MetroFramework.txt" />
+    <Content Include="obj\Debug\ROCAD.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ROCAD.exe" />
+    <Content Include="obj\Debug\ROCAD.pdb" />
     <Content Include="packages.config" />
     <Content Include="Reconnaissance_Marque\Form1.resx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Folder Include="bin\Release\" />
+    <Folder Include="Images\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="obj\Debug\ROCAD.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.CorrectQCMEn.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.CorrectQCMFr.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.CorrectTermineeEn.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.CorrectTermineeFr.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.CreaQcm2En.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.creaQcmWindow2.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.creationQcmEn.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.creationQcmFr.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.mainWindow.resources" />
+    <EmbeddedResource Include="obj\Debug\ROCAD.View.settingsWindow.resources" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="View\Accueil.resx">
+      <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Form6.resx" />
-    <EmbeddedResource Include="View\Form7.resx" />
-    <EmbeddedResource Include="View\Form8.resx" />
-    <EmbeddedResource Include="View\Form9.resx" />
-    <EmbeddedResource Include="View\Settings.resx" />
+    <EmbeddedResource Include="View\CorrectQCMEn.resx">
+      <DependentUpon>CorrectQCMEn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CorrectQCMFr.resx">
+      <DependentUpon>CorrectQCMFr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CorrectTermineeEn.resx">
+      <DependentUpon>CorrectTermineeEn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CorrectTermineeFr.resx">
+      <DependentUpon>CorrectTermineeFr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreaQcm2En.resx">
+      <DependentUpon>CreaQcm2En.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreaQcm2Fr.resx">
+      <DependentUpon>CreaQcm2Fr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\creationQcmEn.resx">
+      <DependentUpon>creationQcmEn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\creationQcmFr.resx">
+      <DependentUpon>creationQcmFr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\settingsWindow.resx">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -48,7 +48,7 @@ namespace ROCAD.Model
 
         public static Project load (string path)
         {
-            Stream stream = File.Open(path, FileMode.Open);
+           Stream stream = File.Open(path, FileMode.Open);
             BinaryFormatter formatter = new BinaryFormatter();
             Project loaded = (Project)formatter.Deserialize(stream);
             stream.Close();
