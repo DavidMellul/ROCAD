@@ -37,8 +37,9 @@
     <StartupObject>ROCAD.Core.Launcher</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Pdf, Version=17.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
-      <HintPath>..\packages\Aspose.Pdf.17.1.0\lib\net40-client\Aspose.Pdf.dll</HintPath>
+    <Reference Include="Aspose.Pdf, Version=16.12.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Pdf.16.12.0\lib\net40-client\Aspose.Pdf.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b">
       <HintPath>..\packages\ClosedXML.0.86.0\lib\net40\ClosedXML.dll</HintPath>
@@ -100,6 +101,7 @@
     <Compile Include="Reconnaissance_Marque\Form1.Designer.cs" />
     <Compile Include="Reconnaissance_Marque\Otsu.cs" />
     <Compile Include="Reconnaissance_Marque\ZoneNumEtudiant.cs" />
+    <Compile Include="Reconnaissance_Marque\ZoneNumSujet.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="View\Form5.cs">
       <SubType>Form</SubType>

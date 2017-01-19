@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using OtsuThreshold;
+using ROCAD.Reconnaissance_Marque;
 
 namespace PT_Lot4
 {
@@ -28,7 +29,7 @@ namespace PT_Lot4
 
             for (int y = ZonePixel.Y; y < ZonePixel.Height + ZonePixel.Y; y++)
             {
-                for (int x = ZonePixel.X; x < ZonePixel.Width+ZonePixel.X; x++)
+                for (int x = ZonePixel.X; x < ZonePixel.Width + ZonePixel.X; x++)
                 {
                     binaryColor.Add(studentCopy.getStudentCopy().GetPixel(x, y));
                 }
@@ -40,20 +41,20 @@ namespace PT_Lot4
         public double getPercentageBlackBox(List<Color> binaryColor)
         {
             Color blackColor = Color.FromArgb(0, 0, 0);
-            int countBlackPixel=0;
-            double percentageBlackPixel=0;
+            int countBlackPixel = 0;
+            double percentageBlackPixel = 0;
 
             foreach (Color c in binaryColor)
             {
-                if(c.R.Equals(0) && c.G.Equals(0)  && c.B.Equals(0))
+                if (c.R.Equals(0) && c.G.Equals(0) && c.B.Equals(0))
                 {
                     countBlackPixel += 1;
                 }
             }
 
-           percentageBlackPixel = (((double)countBlackPixel/binaryColor.Count))*100;
-            
-           
+            percentageBlackPixel = (((double)countBlackPixel / binaryColor.Count)) * 100;
+
+
 
             return percentageBlackPixel;
 
@@ -69,8 +70,8 @@ namespace PT_Lot4
         public void setCopie(CopyOtsu copieEtudiant) {
             this.copieEtudiant = copieEtudiant;
         }
-        
-       
+
+
         public int getNumeroEtudiant(CopyOtsu copieEtudiant) {
 
             //Creation du dictionnaire qui servira à connaître toutes les couleurs de chaque case de la grille du numero d'etudiant
@@ -81,7 +82,7 @@ namespace PT_Lot4
             {
                 for (int y = 0; y <= 9 * ZoneNumeroEtudiant.distanceDeuxCases; y += ZoneNumeroEtudiant.distanceDeuxCases)
                 {
-                    
+
                     caseCouleurs.Add(new Case(), this.getColorPixel(copieEtudiant, new Rectangle(ZoneNumeroEtudiant.X + x, ZoneNumeroEtudiant.Y + y, Case.HEIGHT, Case.WIDTH)));
                 }
 
@@ -107,7 +108,7 @@ namespace PT_Lot4
 
 
             String numeroEtudiant = "0";
- 
+
             foreach (KeyValuePair<int, int> caseColor in caseBinarys)
             {
                 numeroEtudiant += (caseColor.Key) % 10;
@@ -119,10 +120,10 @@ namespace PT_Lot4
         }
 
         public Boolean isChecked(Rectangle zoneCase) {
-            List<Color> r = getColorPixel(this.copieEtudiant,zoneCase);
+            List<Color> r = getColorPixel(this.copieEtudiant, zoneCase);
             double pourcentNoir = getPercentageBlackBox(r);
 
-            if(pourcentNoir >= ZoneNumeroEtudiant.seuilNoirceur ){
+            if (pourcentNoir >= ZoneNumeroEtudiant.seuilNoirceur) {
                 return true;
             }
 
@@ -130,7 +131,120 @@ namespace PT_Lot4
 
         }
 
-    }
+
+        public int getNumeroSujetCopie(CopyOtsu copieEtudiant)
+        {
+
+            Dictionary<Case, List<Color>> caseCouleurs = new Dictionary<Case, List<Color>>();
+
+            for (int x = 12 * (Case.HEIGHT); x > 0; x -= (Case.HEIGHT)){
+                for (int y = Case.HEIGHT; y >= 0; y -= (Case.HEIGHT))
+                {
+                    caseCouleurs.Add(new Case(), this.getColorPixel(copieEtudiant, new Rectangle(ZoneNumSujet.X + (12 * Case.HEIGHT) - (x + 1), ZoneNumSujet.Y + y, Case.HEIGHT, Case.WIDTH)));
+                }
+
+            }
+
+            List<int> caseBinarys = new List<int>();
+            Dictionary<int, int> premiereCases = new Dictionary<int, int>();
+
+
+            foreach (KeyValuePair<Case, List<Color>> caseColor in caseCouleurs){
+
+                if (this.getPercentageBlackBox(caseColor.Value) > ZoneNumeroEtudiant.seuilNoirceur)
+                {
+                    caseBinarys.Add(1);
+
+                }
+                else
+                {
+                    caseBinarys.Add(0);
+                }
+
+            }
+
+            int nombreMaxSujet = 0;
+            int p = 11;
+
+            for (int i = 0; i <= (caseBinarys.Count - 1); i += 2) {
+
+                premiereCases.Add(p, caseBinarys[i + 1]);
+                p--;
+
+            }
+
+
+            foreach (KeyValuePair<int, int> numCases in premiereCases)  {
+                if (numCases.Value == 1)
+                {
+                    nombreMaxSujet += (int)Math.Pow(2, numCases.Key);
+
+                }
+
+            }
+
+            return nombreMaxSujet;
+
+        }
+
+        public int getNombreMaxPage(CopyOtsu copieEtudiant) {
+
+            Dictionary<Case, List<Color>> caseCouleurs = new Dictionary<Case, List<Color>>();
+
+            for (int x = 12 * (Case.HEIGHT); x > 0; x -= (Case.HEIGHT))
+            {
+                for (int y = Case.HEIGHT; y >= 0; y -= (Case.HEIGHT))
+                {
+
+                    caseCouleurs.Add(new Case(), this.getColorPixel(copieEtudiant, new Rectangle(ZoneNumSujet.X + (12 * Case.HEIGHT) - (x + 1), ZoneNumSujet.Y + y, Case.HEIGHT, Case.WIDTH)));
+                }
+
+            }
+
+            List<int> caseBinarys = new List<int>();
+            Dictionary<int, int> deuxiemeCases = new Dictionary<int, int>();
+
+            foreach (KeyValuePair<Case, List<Color>> caseColor in caseCouleurs)  {
+
+                if (this.getPercentageBlackBox(caseColor.Value) > ZoneNumeroEtudiant.seuilNoirceur)
+                {
+                    caseBinarys.Add(1);
+
+                }
+                else
+                {
+                    caseBinarys.Add(0);
+                }
+
+            }
+
+            int nombreMaxPage = 0;
+            int p = 11;
+
+            for (int i = 0; i <= (caseBinarys.Count - 1); i += 2)
+            {
+                deuxiemeCases.Add(p, caseBinarys[i]);
+                p--;
+
+            }
+
+            foreach (KeyValuePair<int, int> numCases1 in deuxiemeCases)
+            {
+                if (numCases1.Value == 1)
+                {
+                    nombreMaxPage += (int)Math.Pow(2, numCases1.Key);
+
+                }
+
+            }
+
+            return nombreMaxPage;
+        }
+
+   
+
+
+}
       
 
 }
