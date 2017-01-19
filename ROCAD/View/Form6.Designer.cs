@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -43,6 +44,8 @@
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +115,7 @@
             this.metroTextBox6.Location = new System.Drawing.Point(336, 261);
             this.metroTextBox6.Name = "metroTextBox6";
             this.metroTextBox6.PromptText = "Durée";
-            this.metroTextBox6.Size = new System.Drawing.Size(271, 23);
+            this.metroTextBox6.Size = new System.Drawing.Size(171, 23);
             this.metroTextBox6.TabIndex = 21;
             this.metroTextBox6.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
@@ -205,12 +208,33 @@
             this.numericUpDown1.Size = new System.Drawing.Size(268, 16);
             this.numericUpDown1.TabIndex = 35;
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(514, 261);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(93, 23);
+            this.metroButton2.TabIndex = 36;
+            this.metroButton2.Text = "Calendrier";
+            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.monthCalendar1.Location = new System.Drawing.Point(630, 129);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 37;
+            this.monthCalendar1.Visible = false;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(896, 483);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.metroTextBox4);
@@ -228,8 +252,9 @@
             this.Controls.Add(this.metroTextBox1);
             this.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form6";
-            this.Text = "Création de QCM (1/2)";
+            this.Text = "R.O.C.A.D.E";
             this.TransparencyKey = System.Drawing.Color.Black;
             this.Load += new System.EventHandler(this.Form6_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -254,5 +279,7 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

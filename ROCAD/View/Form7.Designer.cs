@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7));
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
@@ -634,8 +635,9 @@
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.metroProgressBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form7";
-            this.Text = "Création de QCM (2/2)";
+            this.Text = "R.O.C.A.D.E";
             this.Load += new System.EventHandler(this.Form7_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

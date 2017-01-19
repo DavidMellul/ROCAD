@@ -16,7 +16,7 @@ namespace ROCAD.Core
     internal class Launcher
     {
         public static void Main(string[] args)
-        {
+        {/*
             String title = "DS_deSaumon";
             String path = title + "";
             Project p_load = Project.load(path);
@@ -24,9 +24,7 @@ namespace ROCAD.Core
            MarkRecognizer.analyzeSheet(p_load.subjectList()[0], p_load.title());
 
 
-/*
-*/
-/*
+
                 Response rPossible1 = new Response("A");
                 Response rPossible2 = new Response("B");
                 Response rPossible3 = new Response("C");
@@ -72,10 +70,10 @@ namespace ROCAD.Core
               ExportationHandler.exportAsCsv(l, p.title()+".xlsx");
 */
 
-            /*    Application.EnableVisualStyles();
+                Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form5());
-    */
+    
         }
     }
 }

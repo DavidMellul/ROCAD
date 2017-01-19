@@ -30,187 +30,173 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.correctQCM = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.openQCM = new System.Windows.Forms.Button();
+            this.settings = new System.Windows.Forms.Button();
+            this.help = new System.Windows.Forms.Button();
+            this.creerQCM = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(203, 0);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.correctQCM);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(726, 517);
-            this.panel1.TabIndex = 0;
             // 
-            // button5
+            // pictureBox1
             // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.Silver;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.Location = new System.Drawing.Point(320, 202);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 64);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Open";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
-            // button6
+            // correctQCM
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.Silver;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(320, 338);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(195, 60);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Settings";
-            this.button6.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.correctQCM, "correctQCM");
+            this.correctQCM.BackColor = System.Drawing.Color.Transparent;
+            this.correctQCM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.correctQCM.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.correctQCM.FlatAppearance.BorderSize = 0;
+            this.correctQCM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.correctQCM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.correctQCM.ForeColor = System.Drawing.Color.Silver;
+            this.correctQCM.Name = "correctQCM";
+            this.correctQCM.UseVisualStyleBackColor = false;
+            this.correctQCM.Click += new System.EventHandler(this.button7_Click);
+            this.correctQCM.MouseLeave += new System.EventHandler(this.correctQCM_MouseLeaver);
+            this.correctQCM.MouseHover += new System.EventHandler(this.correctQCM_MouseOver);
             // 
-            // button4
+            // panel3
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Silver;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(320, 404);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 60);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Help";
-            this.button4.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Controls.Add(this.openQCM);
+            this.panel3.Controls.Add(this.settings);
+            this.panel3.Controls.Add(this.help);
+            this.panel3.Controls.Add(this.creerQCM);
+            this.panel3.Name = "panel3";
             // 
-            // button3
+            // openQCM
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Silver;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(320, 136);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 60);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Create a MCQ";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            resources.ApplyResources(this.openQCM, "openQCM");
+            this.openQCM.BackColor = System.Drawing.Color.Transparent;
+            this.openQCM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openQCM.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.openQCM.FlatAppearance.BorderSize = 0;
+            this.openQCM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.openQCM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.openQCM.ForeColor = System.Drawing.Color.Silver;
+            this.openQCM.Name = "openQCM";
+            this.openQCM.UseVisualStyleBackColor = false;
+            this.openQCM.Click += new System.EventHandler(this.button5_Click);
+            this.openQCM.MouseLeave += new System.EventHandler(this.openQCM_MouseLeaver);
+            this.openQCM.MouseHover += new System.EventHandler(this.open_MouseOver);
+            // 
+            // settings
+            // 
+            resources.ApplyResources(this.settings, "settings");
+            this.settings.BackColor = System.Drawing.Color.Transparent;
+            this.settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.settings.FlatAppearance.BorderSize = 0;
+            this.settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.settings.ForeColor = System.Drawing.Color.Silver;
+            this.settings.Name = "settings";
+            this.settings.UseVisualStyleBackColor = false;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            this.settings.MouseLeave += new System.EventHandler(this.settings_MouseLeaver);
+            this.settings.MouseHover += new System.EventHandler(this.settings_MouseOver);
+            // 
+            // help
+            // 
+            resources.ApplyResources(this.help, "help");
+            this.help.BackColor = System.Drawing.Color.Transparent;
+            this.help.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.help.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.help.FlatAppearance.BorderSize = 0;
+            this.help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.help.ForeColor = System.Drawing.Color.Silver;
+            this.help.Name = "help";
+            this.help.UseVisualStyleBackColor = false;
+            this.help.MouseLeave += new System.EventHandler(this.help_MouseLeaver);
+            this.help.MouseHover += new System.EventHandler(this.help_MouseOver);
+            // 
+            // creerQCM
+            // 
+            resources.ApplyResources(this.creerQCM, "creerQCM");
+            this.creerQCM.BackColor = System.Drawing.Color.Transparent;
+            this.creerQCM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.creerQCM.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.creerQCM.FlatAppearance.BorderSize = 0;
+            this.creerQCM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.creerQCM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.creerQCM.ForeColor = System.Drawing.Color.Silver;
+            this.creerQCM.Name = "creerQCM";
+            this.creerQCM.UseVisualStyleBackColor = false;
+            this.creerQCM.Click += new System.EventHandler(this.button3_Click);
+            this.creerQCM.MouseLeave += new System.EventHandler(this.creerQCM_MouseLeaver);
+            this.creerQCM.MouseHover += new System.EventHandler(this.creerQCM_MouseOver);
             // 
             // panel2
             // 
-            this.panel2.AutoScroll = true;
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(-13, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(325, 516);
-            this.panel2.TabIndex = 1;
             // 
             // button2
             // 
+            resources.ApplyResources(this.button2, "button2");
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(110)))), ((int)(((byte)(175)))));
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Silver;
-            this.button2.Location = new System.Drawing.Point(-10, 63);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(335, 66);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "        QCM_SQL\r\n\r\n        ~/nlt/Documents/";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
+            resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(110)))), ((int)(((byte)(175)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Silver;
-            this.button1.Location = new System.Drawing.Point(-10, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(335, 66);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "        QCM_Anglais\r\n\r\n        ~/Chamarande/Documents/\r\n";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.Silver;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(320, 272);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(195, 60);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Correct a MCQ";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
             // Form5
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 483);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form5";
-            this.Text = "R.O.C.A.D.E";
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -222,10 +208,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button correctQCM;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button openQCM;
+        private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.Button help;
+        private System.Windows.Forms.Button creerQCM;
     }
 }

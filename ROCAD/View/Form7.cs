@@ -15,6 +15,7 @@ namespace ROCAD.View
         public Form7()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void metroLabel3_Click(object sender, EventArgs e)
