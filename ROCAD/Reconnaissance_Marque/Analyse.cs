@@ -14,22 +14,21 @@ namespace PT_Lot4
 
         public Analyse()
         {
-            
 
         }
+
         public Analyse(CopyOtsu copieEtudiant)
         {
             this.copieEtudiant = copieEtudiant;
-
         }
 
         public List<Color> getColorPixel(CopyOtsu studentCopy, Rectangle ZonePixel)
         {
             List<Color> binaryColor = new List<Color>();
 
-            for (int x = ZonePixel.X; x < ZonePixel.Height + ZonePixel.X; x++)
+            for (int y = ZonePixel.Y; y < ZonePixel.Height + ZonePixel.Y; y++)
             {
-                for (int y = ZonePixel.Y; y < ZonePixel.Width+ZonePixel.Y; y++)
+                for (int x = ZonePixel.X; x < ZonePixel.Width+ZonePixel.X; x++)
                 {
                     binaryColor.Add(studentCopy.getStudentCopy().GetPixel(x, y));
                 }
@@ -92,13 +91,12 @@ namespace PT_Lot4
             Dictionary<int, int> caseBinarys = new Dictionary<int, int>();
 
             int numeroCase = 0;
-            int seuilNoirceur = 90;
 
             // Ajouter dans le dictionnaire toutes les cases remplis selon le seuil de noirceur défini
             foreach (KeyValuePair<Case, List<Color>> caseColor in caseCouleurs)
             {
 
-                if (this.getPercentageBlackBox(caseColor.Value) >= seuilNoirceur)
+                if (this.getPercentageBlackBox(caseColor.Value) >= ZoneNumeroEtudiant.seuilNoirceur)
                 {
                     caseBinarys.Add(numeroCase, 1);
 
@@ -108,12 +106,11 @@ namespace PT_Lot4
             }
 
 
-            String numeroEtudiant = "";
+            String numeroEtudiant = "0";
  
             foreach (KeyValuePair<int, int> caseColor in caseBinarys)
             {
                 numeroEtudiant += (caseColor.Key) % 10;
-
             }
 
             int numEtudiant = Convert.ToInt32(numeroEtudiant);
@@ -121,7 +118,19 @@ namespace PT_Lot4
 
         }
 
+        public Boolean isChecked(Rectangle zoneCase) {
+            List<Color> r = getColorPixel(this.copieEtudiant,zoneCase);
+            double pourcentNoir = getPercentageBlackBox(r);
+
+            if(pourcentNoir >= ZoneNumeroEtudiant.seuilNoirceur ){
+                return true;
+            }
+
+            return false;
+
         }
+
+    }
       
 
 }

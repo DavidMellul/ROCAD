@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using ClosedXML.Excel;
+using Microsoft.Win32;
 using ROCAD.Model;
 
 namespace ROCAD.Controller
@@ -17,7 +19,7 @@ namespace ROCAD.Controller
             {
                 new DataColumn("ID", typeof(string)), new DataColumn("GRADE", typeof(double))
             });
-            foreach(Student s in studentList)
+            foreach (Student s in studentList)
             {
                 dt.Rows.Add(s.id(), s.grade());
             }
@@ -25,7 +27,6 @@ namespace ROCAD.Controller
             {
                 wb.Worksheets.Add(dt, "Results");
                 wb.SaveAs(path);
-
             }
         }
     }

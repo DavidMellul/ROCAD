@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using ROCAD.Model;
 
@@ -31,7 +32,7 @@ namespace ROCAD.Controller
         {
             double computed = 0.0;
 
-            for (int i = 0; i < expected.getAnswerList().Count; i++)
+            for (int i = 0; i < answered.getAnswerList().Count; i++)
             {
                 Response rAnswered = new Response(EMPTY_RESPONSE);
                 if (i < answered.getAnswerList().Count)

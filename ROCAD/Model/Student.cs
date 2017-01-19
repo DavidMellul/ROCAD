@@ -50,6 +50,11 @@ namespace ROCAD.Model
             this.m_responseList.Add(r);
         }
 
+        public void setAnswerList(List<Question> l)
+        {
+            this.m_responseList = l;
+        }
+
         public override string ToString()
         {
             return "[Étudiant] => { "+this.m_id+" , "+ " , "+this.m_grade + " }\n";

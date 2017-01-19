@@ -27,7 +27,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -37,6 +37,9 @@
     <StartupObject>ROCAD.Core.Launcher</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Pdf, Version=17.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
+      <HintPath>..\packages\Aspose.Pdf.17.1.0\lib\net40-client\Aspose.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b">
       <HintPath>..\packages\ClosedXML.0.86.0\lib\net40\ClosedXML.dll</HintPath>
     </Reference>
@@ -77,6 +80,7 @@
     <Compile Include="Controller\CorrectionHandler.cs" />
     <Compile Include="Controller\ExportationHandler.cs" />
     <Compile Include="Controller\ImageHandler.cs" />
+    <Compile Include="Controller\MarkRecognizer.cs" />
     <Compile Include="Controller\PDFHandler.cs" />
     <Compile Include="Core\Launcher.cs" />
     <Compile Include="Factory\StudentFactory.cs" />

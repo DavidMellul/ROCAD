@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using ROCAD.Model;
@@ -18,7 +19,6 @@ namespace ROCAD.Factory
         {
             this.m_subjectList = new Dictionary<string, Subject>();
             this.m_referencedProject = p;
-            //a
         }
 
 
