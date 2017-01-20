@@ -15,6 +15,7 @@ namespace ROCAD.Controller
           Bitmap image = new Bitmap(Bitmap.FromFile(path));
 
 
+
           //ANALYZER PART
             CopyOtsu copie = new CopyOtsu();
             copie.setStudentCopy(image);

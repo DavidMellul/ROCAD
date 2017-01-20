@@ -115,7 +115,7 @@
             this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dateTextBox.Location = new System.Drawing.Point(341, 261);
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(172, 20);
+            this.dateTextBox.Size = new System.Drawing.Size(271, 20);
             this.dateTextBox.TabIndex = 61;
             this.dateTextBox.TextChanged += new System.EventHandler(this.Date_TextChanged);
             // 
@@ -232,7 +232,7 @@
             this.ClientSize = new System.Drawing.Size(896, 483);
             this.Controls.Add(this.nbEtudiants);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+         //   this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBarCreaQcm);
             this.Controls.Add(this.nbQuestionsUpDown);
             this.Controls.Add(this.validerCreaQcmButton);

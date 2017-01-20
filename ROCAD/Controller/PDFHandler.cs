@@ -225,9 +225,12 @@ namespace ROCAD.Controller {
                         c6.EndText();
 
                         // On ajuste pour que ça corresponde à l'image jpeg générée qui a une résolution etc qui font que ça fout le bordel sinon
-                        r.x = positionerX+88;
-                        r.y = (int) (positionerY+604);
-                        r.y +=  (int) ((q.getResponseList().Count - v-1) * 52)+(m*300)+(m*8);
+                        if (k == 1)
+                        {
+                            r.x = positionerX + 88;
+                            r.y = (int) (positionerY + 604);
+                            r.y += (int) ((q.getResponseList().Count - v - 1) * 52) + (m * 300) + (m * 8);
+                        }
                     }
                    if ((m + 1) % 4 == 0 && (m+1) < questions.Count) {
                         if (pageCursor == 1) {
