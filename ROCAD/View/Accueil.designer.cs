@@ -38,12 +38,12 @@ namespace ROCAD.View
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.correctQCM = new System.Windows.Forms.Button();
-            this.openQCM = new System.Windows.Forms.Button();
             this.help = new System.Windows.Forms.Button();
             this.creerQcmButton = new System.Windows.Forms.Button();
             this.pastProjectsPanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Projet2 = new System.Windows.Forms.Button();
+            this.Projet1 = new System.Windows.Forms.Button();
+            this.openQCM = new System.Windows.Forms.Button();
             this.accueilPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleButtonTheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -56,11 +56,11 @@ namespace ROCAD.View
             // 
             this.accueilPanel.Controls.Add(this.toggleButtonLabelS);
             this.accueilPanel.Controls.Add(this.toggleButtonTheme);
+            this.accueilPanel.Controls.Add(this.openQCM);
             this.accueilPanel.Controls.Add(this.pictureBox3);
             this.accueilPanel.Controls.Add(this.pictureBox2);
             this.accueilPanel.Controls.Add(this.pictureBox1);
             this.accueilPanel.Controls.Add(this.correctQCM);
-            this.accueilPanel.Controls.Add(this.openQCM);
             this.accueilPanel.Controls.Add(this.help);
             this.accueilPanel.Controls.Add(this.creerQcmButton);
             this.accueilPanel.Location = new System.Drawing.Point(265, 0);
@@ -129,7 +129,7 @@ namespace ROCAD.View
             this.correctQCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.correctQCM.Image = ((System.Drawing.Image)(resources.GetObject("correctQCM.Image")));
             this.correctQCM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.correctQCM.Location = new System.Drawing.Point(423, 279);
+            this.correctQCM.Location = new System.Drawing.Point(364, 256);
             this.correctQCM.Name = "correctQCM";
             this.correctQCM.Size = new System.Drawing.Size(194, 52);
             this.correctQCM.TabIndex = 11;
@@ -137,25 +137,6 @@ namespace ROCAD.View
             this.correctQCM.Click += new System.EventHandler(this.correctQCM_Click);
             this.correctQCM.MouseLeave += new System.EventHandler(this.correctQCM_MouseLeaver);
             this.correctQCM.MouseHover += new System.EventHandler(this.correctQCM_MouseOver);
-            // 
-            // openQCM
-            // 
-            this.openQCM.BackColor = System.Drawing.Color.Transparent;
-            this.openQCM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.openQCM.FlatAppearance.BorderSize = 0;
-            this.openQCM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.openQCM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.openQCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openQCM.Image = ((System.Drawing.Image)(resources.GetObject("openQCM.Image")));
-            this.openQCM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.openQCM.Location = new System.Drawing.Point(222, 279);
-            this.openQCM.Name = "openQCM";
-            this.openQCM.Size = new System.Drawing.Size(195, 52);
-            this.openQCM.TabIndex = 8;
-            this.openQCM.UseVisualStyleBackColor = false;
-            this.openQCM.Click += new System.EventHandler(this.openQCM_Click);
-            this.openQCM.MouseLeave += new System.EventHandler(this.openQCM_MouseLeaver);
-            this.openQCM.MouseHover += new System.EventHandler(this.open_MouseOver);
             // 
             // help
             // 
@@ -166,11 +147,12 @@ namespace ROCAD.View
             this.help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.help.Image = ((System.Drawing.Image)(resources.GetObject("help.Image")));
-            this.help.Location = new System.Drawing.Point(222, 362);
+            this.help.Location = new System.Drawing.Point(291, 354);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(195, 52);
             this.help.TabIndex = 9;
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             this.help.MouseLeave += new System.EventHandler(this.help_MouseLeaver);
             this.help.MouseHover += new System.EventHandler(this.help_MouseOver);
             // 
@@ -185,7 +167,7 @@ namespace ROCAD.View
             this.creerQcmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.creerQcmButton.Image = ((System.Drawing.Image)(resources.GetObject("creerQcmButton.Image")));
             this.creerQcmButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.creerQcmButton.Location = new System.Drawing.Point(21, 279);
+            this.creerQcmButton.Location = new System.Drawing.Point(154, 256);
             this.creerQcmButton.Name = "creerQcmButton";
             this.creerQcmButton.Size = new System.Drawing.Size(195, 52);
             this.creerQcmButton.TabIndex = 5;
@@ -196,40 +178,57 @@ namespace ROCAD.View
             // 
             // pastProjectsPanel
             // 
-            this.pastProjectsPanel.Controls.Add(this.button2);
-            this.pastProjectsPanel.Controls.Add(this.button1);
+            this.pastProjectsPanel.Controls.Add(this.Projet2);
+            this.pastProjectsPanel.Controls.Add(this.Projet1);
             this.pastProjectsPanel.Location = new System.Drawing.Point(-28, 0);
             this.pastProjectsPanel.Name = "pastProjectsPanel";
             this.pastProjectsPanel.Size = new System.Drawing.Size(305, 490);
             this.pastProjectsPanel.TabIndex = 1;
             // 
-            // button2
+            // Projet2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(0, 63);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(295, 66);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "        QCM_SQL\r\n\r\n        ~/nlt/Documents/";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.Projet2.BackColor = System.Drawing.Color.Transparent;
+            this.Projet2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Projet2.FlatAppearance.BorderSize = 0;
+            this.Projet2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Projet2.Location = new System.Drawing.Point(0, 63);
+            this.Projet2.Name = "Projet2";
+            this.Projet2.Size = new System.Drawing.Size(295, 66);
+            this.Projet2.TabIndex = 5;
+            this.Projet2.UseVisualStyleBackColor = false;
+            this.Projet2.Click += new System.EventHandler(this.Projet2_Click);
             // 
-            // button1
+            // Projet1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(295, 66);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "        QCM_Anglais\r\n\r\n        ~/Chamarande/Documents/\r\n";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.Projet1.BackColor = System.Drawing.Color.Transparent;
+            this.Projet1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Projet1.FlatAppearance.BorderSize = 0;
+            this.Projet1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Projet1.Location = new System.Drawing.Point(0, 0);
+            this.Projet1.Name = "Projet1";
+            this.Projet1.Size = new System.Drawing.Size(295, 66);
+            this.Projet1.TabIndex = 4;
+            this.Projet1.UseVisualStyleBackColor = false;
+            this.Projet1.Click += new System.EventHandler(this.Projet1_Click);
+            // 
+            // openQCM
+            // 
+            this.openQCM.BackColor = System.Drawing.Color.Transparent;
+            this.openQCM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openQCM.FlatAppearance.BorderSize = 0;
+            this.openQCM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.openQCM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.openQCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openQCM.Image = ((System.Drawing.Image)(resources.GetObject("openQCM.Image")));
+            this.openQCM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.openQCM.Location = new System.Drawing.Point(607, 12);
+            this.openQCM.Name = "openQCM";
+            this.openQCM.Size = new System.Drawing.Size(10, 10);
+            this.openQCM.TabIndex = 8;
+            this.openQCM.UseVisualStyleBackColor = false;
+            this.openQCM.Click += new System.EventHandler(this.openQCM_Click);
+            this.openQCM.MouseLeave += new System.EventHandler(this.openQCM_MouseLeaver);
+            this.openQCM.MouseHover += new System.EventHandler(this.open_MouseOver);
             // 
             // mainWindow
             // 
@@ -241,6 +240,9 @@ namespace ROCAD.View
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainWindow";
             this.Text = "R.O.C.A.D.E";
+            this.Activated += new System.EventHandler(this.mainWindow_Activated);
+            this.Deactivate += new System.EventHandler(this.mainWindow_Deactivate);
+            this.Load += new System.EventHandler(this.mainWindow_Load);
             this.accueilPanel.ResumeLayout(false);
             this.accueilPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleButtonTheme)).EndInit();
@@ -258,15 +260,15 @@ namespace ROCAD.View
         public System.Windows.Forms.Button creerQcmButton;
         public System.Windows.Forms.Panel pastProjectsPanel;
         private System.Windows.Forms.Button correctQCM;
-        private System.Windows.Forms.Button openQCM;
         private System.Windows.Forms.Button help;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Projet2;
+        private System.Windows.Forms.Button Projet1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label toggleButtonLabelS;
         private System.Windows.Forms.PictureBox toggleButtonTheme;
+        private System.Windows.Forms.Button openQCM;
     }
 }
 

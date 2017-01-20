@@ -12,12 +12,20 @@ namespace ROCAD.View
 {
     public partial class CorrectTermineeFr : Form
     {
-        public CorrectTermineeFr()
+        private string path;
+
+        public CorrectTermineeFr(string path)
         {
+            this.path = path;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(this.path+".xlsx");
+        }
+
+        private void CorrectTermineeFr_Load(object sender, EventArgs e)
         {
 
         }

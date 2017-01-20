@@ -22,5 +22,10 @@ namespace ROCAD.View
             CorrectTermineeEn cEn = new CorrectTermineeEn();
             cEn.Show();
         }
+
+        private void CorrectQCMEn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

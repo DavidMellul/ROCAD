@@ -12,10 +12,7 @@ namespace ROCAD.Controller
 
         public static void analyzeSheet(Subject s, string path)
         {
-          //OPEN AND RETRIEVE FILE DATA
-          PDFHandler pdf = new PDFHandler();
-     //     pdf.pdfToBmp(path);
-          Bitmap image = new Bitmap(Bitmap.FromFile(path+".jpg"));
+          Bitmap image = new Bitmap(Bitmap.FromFile(path));
 
 
           //ANALYZER PART
@@ -26,7 +23,7 @@ namespace ROCAD.Controller
           Analyse analyse = new Analyse();
           analyse.setCopie(copie);
 
-          Student studentAnalyzed = s.student();
+          Student studentAnalyzed = new Student(analyse.getNumeroEtudiant(copie).ToString(),new List<Question>());
 
           // Les questions du sujet
           List<Question> listSubjectQuestions = s.questionList();
@@ -36,19 +33,20 @@ namespace ROCAD.Controller
             foreach (Question q in listSubjectQuestions)
           {
               Question answer = new Question();
-              foreach (Response r in q.getResponseList())
+              for (int i = 0; i < q.getResponseList().Count; i++)
               {
+                    Response r = q.getResponseList()[i];
                   if (analyse.isChecked(new Rectangle(r.x, r.y, 23,23)))
                   {
-                      Debug.WriteLine(r.description());
                       answer.getAnswerList().Add(r);
                   }
               }
               studentResponses.Add(answer);
           }
 
-          s.student().setAnswerList(studentResponses);
-          CorrectionHandler.correct(s);
+            studentAnalyzed.setAnswerList(studentResponses);
+            s.setStudent(studentAnalyzed);
+            CorrectionHandler.correct(s);
         }
 
 

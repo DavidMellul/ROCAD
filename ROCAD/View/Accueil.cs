@@ -1,7 +1,10 @@
-﻿using System;
+﻿using ROCAD.Controller;
+using ROCAD.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -137,13 +140,10 @@ namespace ROCAD.View
         private void openQCM_Click(object sender, EventArgs e)
         {
             OpenFileDialog o1 = new OpenFileDialog();
-            o1.Filter = "Xml Files (.xml)|*.xml";
+            o1.Filter = "ROCAD Files (.ROCAD)|*.ROCAD";
             if (o1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                System.IO.StreamReader sr = new
-                   System.IO.StreamReader(o1.FileName);
-                MessageBox.Show(sr.ReadToEnd());
-                sr.Close();
+                new creationQcmFr().ShowDialog();
 
 
             }
@@ -197,10 +197,10 @@ namespace ROCAD.View
             {
                 this.accueilPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
                 this.pastProjectsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-                this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(145)))), ((int)(((byte)(80)))));
-                this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
-                this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(145)))), ((int)(((byte)(80)))));
-                this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+                this.Projet2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(145)))), ((int)(((byte)(80)))));
+                this.Projet2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+                this.Projet1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(145)))), ((int)(((byte)(80)))));
+                this.Projet1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
                 this.correctQCM.FlatAppearance.BorderColor = System.Drawing.Color.Black;
                 this.correctQCM.ForeColor = System.Drawing.Color.Black;
                 this.openQCM.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -209,10 +209,10 @@ namespace ROCAD.View
                 this.help.ForeColor = System.Drawing.Color.Black;
                 this.creerQcmButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
                 this.creerQcmButton.ForeColor = System.Drawing.Color.Black;
-                this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-                this.button2.ForeColor = System.Drawing.Color.Black;
-                this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-                this.button1.ForeColor = System.Drawing.Color.Black;
+                this.Projet2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+                this.Projet2.ForeColor = System.Drawing.Color.Black;
+                this.Projet1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+                this.Projet1.ForeColor = System.Drawing.Color.Black;
                 this.toggleButtonLabelS.ForeColor = Color.Black;
             }
                 else
@@ -242,21 +242,88 @@ namespace ROCAD.View
             this.help.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.help.ForeColor = System.Drawing.Color.Silver;
             this.creerQcmButton.ForeColor = System.Drawing.Color.Silver;
+            
             this.pastProjectsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(110)))), ((int)(((byte)(175)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.button2.ForeColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(110)))), ((int)(((byte)(175)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.button1.ForeColor = System.Drawing.Color.Silver;
+            this.Projet2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Projet2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(110)))), ((int)(((byte)(175)))));
+            this.Projet2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.Projet2.ForeColor = System.Drawing.Color.Silver;
+            this.Projet1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Projet1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(110)))), ((int)(((byte)(175)))));
+            this.Projet1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.Projet1.ForeColor = System.Drawing.Color.Silver;
             this.toggleButtonLabelS.ForeColor = System.Drawing.Color.Silver;
         }
 
         private void accueilPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void mainWindow_Load(object sender, EventArgs e)
+        {
+            if(File.Exists("settings.ROCAD") == false)
+            {
+                File.Create("settings.ROCAD");
+               
+            }
+            else
+            {
+                string content = File.ReadAllText("settings.ROCAD");
+                if (content.Length != 0)
+                {
+                    string[] projects = content.Split('#');
+                    Projet1.Text = projects[0];
+                    if (projects.Count<string>() > 1)
+                        Projet2.Text = projects[1];
+
+                }
+            }
+           
+        }
+
+        private void Projet1_Click(object sender, EventArgs e)
+        {
+            MainController.getInstance().setProject(Project.load(Projet1.Text));
+        }
+
+        private void mainWindow_Activated(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Projet2_Click(object sender, EventArgs e)
+        {
+            MainController.getInstance().setProject(Project.load(Projet2.Text));
+
+        }
+
+        private void mainWindow_Deactivate(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists("settings.ROCAD"))
+                {
+                    string content = File.ReadAllText("settings.ROCAD");
+                    if (content.Length != 0)
+                    {
+                        string[] projects = content.Split('#');
+                        Projet1.Text = projects[0];
+                        if (projects.Count<string>() > 1)
+                            Projet2.Text = projects[1];
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+            
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("manual.pdf");
         }
     }
 }

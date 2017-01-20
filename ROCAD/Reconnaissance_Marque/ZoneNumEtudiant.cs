@@ -14,7 +14,7 @@ namespace PT_Lot4
             public const int X = 196;
             public const int Y = 274;
             public const int distanceDeuxCases= 42;
-            public const int seuilNoirceur = 50;
+            public const int seuilNoirceur = 70;
         }
     
 }

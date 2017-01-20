@@ -56,5 +56,10 @@ namespace ROCAD.Model
         {
             this.m_questionList.Add(q);
         }
+
+        public void setStudent(Student s)
+        {
+            this.m_student = s;
+        }
     }
 }

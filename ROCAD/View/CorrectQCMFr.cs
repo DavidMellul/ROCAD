@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ROCAD.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,9 +26,9 @@ namespace ROCAD.View
         private void button1_Click(object sender, EventArgs e)
         {
             progressBar1.Value = progressBar1.Maximum;
-            CorrectTermineeFr f4 = new CorrectTermineeFr();
-            f4.Show();
-
+            ExportationHandler.exportAsCsv(MainController.getInstance().getProject().subjectList()[0].student(), NomCorrection.Text);
+            CorrectTermineeFr f4 = new CorrectTermineeFr(NomCorrection.Text);
+            f4.ShowDialog();
 
         }
 
@@ -42,12 +43,7 @@ namespace ROCAD.View
             o1.Filter = "JPG Files (.jpg)|*.jpg";
             if (o1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                System.IO.StreamReader sr = new
-                   System.IO.StreamReader(o1.FileName);
-                MessageBox.Show(sr.ReadToEnd());
-                sr.Close();
-
-
+                MarkRecognizer.analyzeSheet(MainController.getInstance().getProject().subjectList()[0], o1.FileName);
             }
         }
 

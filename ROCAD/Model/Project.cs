@@ -40,7 +40,7 @@ namespace ROCAD.Model
         }
 
         public void save(String path) {
-            Stream stream = File.Open(path, FileMode.OpenOrCreate);
+            Stream stream = File.Open(path+".ROCAD", FileMode.OpenOrCreate);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream,this);
             stream.Close();
@@ -48,7 +48,7 @@ namespace ROCAD.Model
 
         public static Project load (string path)
         {
-           Stream stream = File.Open(path, FileMode.Open);
+            Stream stream = File.Open(path+".ROCAD", FileMode.Open);
             BinaryFormatter formatter = new BinaryFormatter();
             Project loaded = (Project)formatter.Deserialize(stream);
             stream.Close();

@@ -137,7 +137,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CorrectQCMFr";
-            this.Text = "Form2";
+            this.Text = "R.O.C.A.D.E";
             this.ResumeLayout(false);
             this.PerformLayout();
 

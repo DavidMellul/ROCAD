@@ -133,6 +133,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CorrectQCMEn";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.CorrectQCMEn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

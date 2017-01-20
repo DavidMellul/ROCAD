@@ -228,9 +228,8 @@ namespace ROCAD.Controller {
                         r.x = positionerX+88;
                         r.y = (int) (positionerY+604);
                         r.y +=  (int) ((q.getResponseList().Count - v-1) * 52)+(m*300)+(m*8);
-                        Debug.WriteLine(r.y);
                     }
-                   if ((m + 1) % 4 == 0) {
+                   if ((m + 1) % 4 == 0 && (m+1) < questions.Count) {
                         if (pageCursor == 1) {
                             pageCursor += 1;
                             m_writerData.NewPage();
@@ -259,13 +258,30 @@ namespace ROCAD.Controller {
 
         private void writeHeadeIdentifier() {
             PdfContentByte cb = m_writer.DirectContent;
+            Random rn = new Random();
             //BLOC D'IDENTIFICATION
-            for (int b = 0; b < 12; b++) {
-                for (int u = 0; u < 2; u++) {
-                    cb.Rectangle(-b * 10 + 550, u * 10 + 800, 10, 10);
-                    cb.Stroke();
-                }
+            for (int b = 0; b < 11; b++)
+            {
+                cb.Rectangle(-b * 10 + 550, 10 + 800, 10, 10);
+                cb.Stroke();
             }
+
+            cb.Rectangle(-110 + 550, 811, 10, 10);
+            cb.Fill();
+
+            for (int b = 0; b < 12; b++)
+            {
+                for (int u = 0; u < 1; u++)
+                {
+                    cb.Rectangle(-b * 10 + 550, u * 10 + 800, 10, 10);
+                    if (rn.Next(2) == 1)
+                        cb.Stroke();
+                    else
+                        cb.Fill();
+                }
+              
+            }
+        
         }
 
         private static int RandomNumber(int min, int max) {

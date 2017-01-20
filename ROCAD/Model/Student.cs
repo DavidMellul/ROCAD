@@ -6,6 +6,7 @@ namespace ROCAD.Model
     [Serializable()]
     public class Student
     {
+        private static int ID = 1;
         // DATA PART
         private string m_id;
         private double m_grade;
@@ -15,7 +16,7 @@ namespace ROCAD.Model
 
         public Student()
         {
-            this.m_id = "0";
+            this.m_id = ID++.ToString();
             this.m_responseList = new List<Question>();
         }
 

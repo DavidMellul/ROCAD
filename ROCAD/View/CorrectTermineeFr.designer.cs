@@ -67,7 +67,8 @@
             this.Controls.Add(this.OuvrirCorrection);
             this.Controls.Add(this.label1);
             this.Name = "CorrectTermineeFr";
-            this.Text = "Form4";
+            this.Text = "R.O.C.A.D.E";
+            this.Load += new System.EventHandler(this.CorrectTermineeFr_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

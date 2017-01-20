@@ -26,7 +26,24 @@ namespace ROCAD.Controller
             using (XLWorkbook wb = new XLWorkbook())
             {
                 wb.Worksheets.Add(dt, "Results");
-                wb.SaveAs(path);
+                wb.SaveAs(path+".xlsx");
+            }
+        }
+
+        public static void exportAsCsv(Student s, string path)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[2]
+            {
+                new DataColumn("ID", typeof(string)), new DataColumn("GRADE", typeof(double))
+            });
+
+                dt.Rows.Add(s.id(), s.grade());
+            
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt, "Results");
+                wb.SaveAs(path + ".xlsx");
             }
         }
     }

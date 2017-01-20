@@ -84,6 +84,7 @@
     <Compile Include="Controller\CorrectionHandler.cs" />
     <Compile Include="Controller\ExportationHandler.cs" />
     <Compile Include="Controller\ImageHandler.cs" />
+    <Compile Include="Controller\MainController.cs" />
     <Compile Include="Controller\MarkRecognizer.cs" />
     <Compile Include="Controller\PDFHandler.cs" />
     <Compile Include="Core\Launcher.cs" />
@@ -99,6 +100,11 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Reconnaissance_Marque\Analyse.cs" />
     <Compile Include="Reconnaissance_Marque\Case.cs" />
     <Compile Include="Reconnaissance_Marque\CopyOtsu.cs" />
@@ -173,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\manual.pdf" />
     <None Include="bin\Debug\ROCAD.exe.config" />
     <None Include="bin\Debug\ROCAD.vshost.exe.config" />
     <None Include="bin\Debug\ROCAD.vshost.exe.manifest" />
@@ -181,7 +188,10 @@
     <None Include="obj\Debug\ROCAD.csproj.GenerateResource.Cache" />
     <None Include="obj\Debug\ROCAD.csproj.ROCAD.exe.config" />
     <None Include="obj\Debug\ROCAD.csprojResolveAssemblyReference.cache" />
-    <None Include="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\Aspose.Pdf.dll" />
